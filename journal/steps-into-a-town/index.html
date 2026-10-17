@@ -7,8 +7,7 @@
 <meta name="description" content="StepHaven is a cozy town builder for iPhone that you play by walking. Here's how steps become points, what they buy, and why steps can never be bought.">
 <link rel="canonical" href="https://stephaven.app/journal/steps-into-a-town/">
 <meta name="apple-itunes-app" content="app-id=6817135263">
-<meta name="theme-color" content="#FBF4E6" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#1D2418" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#E5EDC6">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How StepHaven turns your steps into a town">
 <meta property="og:description" content="A cozy town builder you play by walking: how steps become points, and what they buy.">
@@ -16,7 +15,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../../img/icon-64.png">
 <link rel="apple-touch-icon" href="../../img/icon-180.png">
-<link rel="stylesheet" href="../journal.css">
+<link rel="preload" href="../../fonts/BarlowCondensed-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../fonts/Barlow-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../site.css?v=13">
+<link rel="stylesheet" href="../journal.css?v=9">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -33,23 +35,24 @@
 </head>
 <body>
 
-<div class="bar"><div class="wrap">
-  <a class="brand" href="../../"><img src="../../img/icon-64.png" alt="">StepHaven</a>
+<div class="sheet">
+<header class="topline">
+  <a class="brand" href="../../"><img src="../../img/icon-64.png" alt=""><b>StepHaven</b></a>
   <nav>
     <a href="../" aria-current="page">Journal</a>
     <a class="get" href="https://apps.apple.com/app/id6817135263">Get the app</a>
   </nav>
-</div></div>
+</header>
 
-<article>
+<article class="card">
   <header class="read">
-    <div class="meta">October 16, 2026 · Brody Richmond</div>
     <h1>How StepHaven turns your steps into a town</h1>
     <p class="dek">Most step counters show you a number. StepHaven shows you a little town that only exists because you went outside.</p>
+    <p class="byline">October 16, 2026 · Brody Richmond</p>
   </header>
 
   <figure class="cover">
-    <img src="../img/village-afternoon.jpg" alt="A village of cottages, flower beds and cobbled lanes beside a canal, with villagers out walking" width="1440" height="810">
+    <picture><source type="image/avif" srcset="../img/village-afternoon.avif"><img src="../img/village-afternoon.jpg" alt="A village of cottages, flower beds and cobbled lanes beside a canal, with villagers out walking" width="1440" height="810"></picture>
     <figcaption>A village built entirely from walks.</figcaption>
   </figure>
 
@@ -75,7 +78,7 @@
     <p>A garden bench costs about 60 steps, an oak tree a little over 100, and a small house you design yourself a few hundred. A normal day on your feet builds a street. The shop has a walk guide built in, so you can always see how far away the thing you want is.</p>
 
     <figure class="figure phone">
-      <img src="../../img/shot-01.jpg" alt="The StepHaven step counter above a newly built house" width="600" height="1303" loading="lazy">
+      <picture><source type="image/avif" srcset="../../img/shot-01.avif"><img src="../../img/shot-01.jpg" alt="The StepHaven step counter above a newly built house" width="600" height="1303" loading="lazy"></picture>
       <figcaption>Today's steps, ready to spend.</figcaption>
     </figure>
 
@@ -92,7 +95,7 @@
     <p>The lighting follows your phone's clock, so you'll see dawn, a golden afternoon and a town full of lit windows at night. The seasons change through the year too, with spring blossom, autumn leaves and snow on the roofs in winter.</p>
 
     <figure class="figure">
-      <img src="../img/gnome-garden.jpg" alt="A garden with flower beds, a garden gnome holding a lantern, and a winding path" width="1440" height="960" loading="lazy">
+      <picture><source type="image/avif" srcset="../img/gnome-garden.avif"><img src="../img/gnome-garden.jpg" alt="A garden with flower beds, a garden gnome holding a lantern, and a winding path" width="1440" height="960" loading="lazy"></picture>
       <figcaption>The garden gnome costs more than anything his size, on purpose.</figcaption>
     </figure>
 
@@ -112,7 +115,7 @@
       <div>
         <h3>StepHaven: Cozy Town Builder</h3>
         <p>Free on iPhone. No ads, and your steps stay on your phone.</p>
-        <a class="badge" href="https://apps.apple.com/app/id6817135263"><span class="small">Download on the</span><span class="big">App Store</span></a>
+        <a class="badge" href="https://apps.apple.com/app/id6817135263" aria-label="Download StepHaven on the App Store"><svg viewBox="0 0 24 30" aria-hidden="true"><path d="M19.6 16c0-3 2.5-4.4 2.6-4.5-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.6 1.1-4.6 1.1-1 0-2.4-1.1-4-1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.2 1.5 12.2 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 3.9-1s2.4 1 4 1c1.6 0 2.7-1.5 3.7-3 1.2-1.7 1.6-3.3 1.7-3.4-.1 0-3.2-1.2-3.2-5zM16.6 6.9c.8-1 1.4-2.4 1.2-3.8-1.2.1-2.7.8-3.5 1.8-.8.9-1.5 2.3-1.3 3.7 1.3.1 2.7-.7 3.6-1.7z"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
       </div>
     </div>
 
@@ -126,7 +129,7 @@
   </div>
 </article>
 
-<footer>
+<footer class="imprint">
   <div class="wrap">
     <span>© 2026 Northlane</span>
     <nav>
@@ -137,5 +140,6 @@
     </nav>
   </div>
 </footer>
+</div>
 </body>
 </html>

@@ -7,8 +7,7 @@
 <meta name="description" content="StepHaven isn't only for walkers. Wheelchair pushes count like steps, and Ember turns workouts like cycling and swimming into points for your town.">
 <link rel="canonical" href="https://stephaven.app/journal/every-kind-of-moving/">
 <meta name="apple-itunes-app" content="app-id=6817135263">
-<meta name="theme-color" content="#FBF4E6" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#1D2418" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#E5EDC6">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Every kind of moving counts">
 <meta property="og:description" content="Wheelchair pushes count like steps, and Ember turns workouts into points for your town.">
@@ -16,7 +15,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../../img/icon-64.png">
 <link rel="apple-touch-icon" href="../../img/icon-180.png">
-<link rel="stylesheet" href="../journal.css">
+<link rel="preload" href="../../fonts/BarlowCondensed-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../fonts/Barlow-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../site.css?v=13">
+<link rel="stylesheet" href="../journal.css?v=9">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -33,23 +35,24 @@
 </head>
 <body>
 
-<div class="bar"><div class="wrap">
-  <a class="brand" href="../../"><img src="../../img/icon-64.png" alt="">StepHaven</a>
+<div class="sheet">
+<header class="topline">
+  <a class="brand" href="../../"><img src="../../img/icon-64.png" alt=""><b>StepHaven</b></a>
   <nav>
     <a href="../" aria-current="page">Journal</a>
     <a class="get" href="https://apps.apple.com/app/id6817135263">Get the app</a>
   </nav>
-</div></div>
+</header>
 
-<article>
+<article class="card">
   <header class="read">
-    <div class="meta">October 16, 2026 · Brody Richmond</div>
     <h1>Every kind of moving counts</h1>
     <p class="dek">StepHaven is a game you play by moving, and walking isn't the only way to move. Here's how wheelchair pushes and workouts earn points too.</p>
+    <p class="byline">October 16, 2026 · Brody Richmond</p>
   </header>
 
   <figure class="cover">
-    <img src="../img/spring-canal-town.jpg" alt="A spring town of cherry trees and bridges along a canal" width="1440" height="810">
+    <picture><source type="image/avif" srcset="../img/spring-canal-town.avif"><img src="../img/spring-canal-town.jpg" alt="A spring town of cherry trees and bridges along a canal" width="1440" height="810"></picture>
   </figure>
 
   <div class="read">
@@ -102,7 +105,7 @@
       <div>
         <h3>StepHaven: Cozy Town Builder</h3>
         <p>Free on iPhone. No ads, and your steps stay on your phone.</p>
-        <a class="badge" href="https://apps.apple.com/app/id6817135263"><span class="small">Download on the</span><span class="big">App Store</span></a>
+        <a class="badge" href="https://apps.apple.com/app/id6817135263" aria-label="Download StepHaven on the App Store"><svg viewBox="0 0 24 30" aria-hidden="true"><path d="M19.6 16c0-3 2.5-4.4 2.6-4.5-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.6 1.1-4.6 1.1-1 0-2.4-1.1-4-1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.2 1.5 12.2 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 3.9-1s2.4 1 4 1c1.6 0 2.7-1.5 3.7-3 1.2-1.7 1.6-3.3 1.7-3.4-.1 0-3.2-1.2-3.2-5zM16.6 6.9c.8-1 1.4-2.4 1.2-3.8-1.2.1-2.7.8-3.5 1.8-.8.9-1.5 2.3-1.3 3.7 1.3.1 2.7-.7 3.6-1.7z"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
       </div>
     </div>
 
@@ -116,7 +119,7 @@
   </div>
 </article>
 
-<footer>
+<footer class="imprint">
   <div class="wrap">
     <span>© 2026 Northlane</span>
     <nav>
@@ -127,5 +130,6 @@
     </nav>
   </div>
 </footer>
+</div>
 </body>
 </html>

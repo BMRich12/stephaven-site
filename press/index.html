@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>StepHaven Press Kit</title>
+<meta name="description" content="Facts, screenshots, video, art and contact details for StepHaven, a cozy town builder for iPhone that you play by walking.">
+<meta name="theme-color" content="#E5EDC6">
+<meta property="og:type" content="website">
+<meta property="og:title" content="StepHaven Press Kit">
+<meta property="og:description" content="A cozy town builder for iPhone where your real steps build the town.">
+<meta property="og:image" content="https://stephaven.app/img/og.jpg">
+<link rel="icon" href="../img/icon-64.png">
+<link rel="apple-touch-icon" href="../img/icon-180.png">
+<link rel="preload" href="../fonts/BarlowCondensed-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/Barlow-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../site.css?v=13">
+<style>
+  .press { position: relative; z-index: 3; max-width: 980px; margin: 0 auto; padding: 0 20px 80px; }
+  .press-head { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 28px; align-items: center; padding: 56px 0 26px; }
+  .press-head img { width: 120px; height: 120px; border-radius: 27px; box-shadow: 0 10px 24px rgba(27,42,29,.22); }
+  .press-head h1 { font-size: clamp(46px, 8vw, 80px); line-height: .88; }
+  .press-head h1 span { display: block; color: var(--wood-deep); }
+  .press-head p { margin: 14px 0 0; font-size: 19px; color: var(--ink-soft); max-width: 44ch; }
+  .jump { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0 0 10px; }
+  .jump a { display: block; text-decoration: none; font: 700 16px/1 var(--display); text-transform: uppercase; letter-spacing: .06em;
+    padding: 9px 12px 8px; border: 2px solid var(--ink); background: var(--key); border-radius: 6px; }
+  .jump a:hover { background: var(--ink); color: #fff; }
+  .press section { padding-top: 56px; scroll-margin-top: 20px; }
+  .press h2 { font-size: clamp(34px, 5vw, 48px); margin-bottom: 18px; }
+  .press h3 { font-size: 24px; margin: 30px 0 10px; }
+  .press p, .press li { max-width: 66ch; }
+  .key { background: var(--key); border: 2px solid var(--ink); padding: 4px 0; }
+  .key table { width: 100%; border-collapse: collapse; font-size: 17px; }
+  .key td { padding: 12px 18px; border-top: 1px solid rgba(27,42,29,.18); vertical-align: top; }
+  .key tr:first-child td { border-top: 0; }
+  .key td:first-child { width: 150px; font: 700 15px/1.4 var(--display); text-transform: uppercase; letter-spacing: .08em; color: var(--ink-soft); }
+  .key a { color: var(--path-deep); overflow-wrap: anywhere; }
+  .plain { padding-left: 22px; } .plain li { margin-bottom: 8px; } .plain li::marker { color: var(--path); }
+  .dl { display: inline-flex; align-items: center; gap: 10px; margin: 14px 12px 0 0; text-decoration: none;
+    font: 800 17px/1 var(--display); text-transform: uppercase; letter-spacing: .05em;
+    background: var(--path); color: #fff; padding: 12px 16px; border-radius: 8px; box-shadow: 0 2px 6px rgba(27,42,29,.25); }
+  .dl::before { content: ""; width: 12px; height: 14px; flex: none;
+    background: linear-gradient(#fff,#fff) 5px 0 / 2px 9px no-repeat, linear-gradient(#fff,#fff) 0 12px / 12px 2px no-repeat; }
+  .dl:hover { background: var(--path-deep); color: #fff; }
+  .dl.quiet { background: var(--key); color: var(--ink); border: 2px solid var(--ink); box-shadow: none; padding: 10px 14px; }
+  .dl.quiet::before { background: linear-gradient(var(--ink),var(--ink)) 5px 0 / 2px 9px no-repeat, linear-gradient(var(--ink),var(--ink)) 0 12px / 12px 2px no-repeat; }
+  .dl.quiet:hover { background: var(--ink); color: #fff; }
+  .media { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 32px; align-items: center; }
+  .media video { width: 100%; border-radius: 26px; border: 6px solid #10160F; background: #000; }
+  .shots { display: flex; gap: 14px; overflow-x: auto; padding: 4px 2px 16px; scroll-snap-type: x mandatory; }
+  .shots a { flex: 0 0 auto; scroll-snap-align: start; }
+  .shots img { width: 170px; border: 2px solid var(--ink); border-radius: 16px; }
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 8px; }
+  .gallery a { display: block; text-decoration: none; background: var(--key); border: 2px solid var(--ink); transition: transform .25s var(--ease), box-shadow .25s var(--ease); }
+  .gallery a:hover { color: var(--ink); transform: translateY(-3px); box-shadow: 0 12px 24px rgba(27,42,29,.16); }
+  .gallery img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-bottom: 2px solid var(--ink); background: var(--field-deep); }
+  .gallery span { display: block; padding: 10px 12px 12px; font-size: 15px; font-weight: 600; }
+  .contact { background: var(--sign); color: #fff; border-radius: 12px; padding: 24px 26px; outline: 2px solid #fff; outline-offset: -8px; max-width: 640px; }
+  .contact a { color: #fff; }
+  @media (max-width: 760px) {
+    .press-head { grid-template-columns: 1fr; gap: 18px; padding-top: 36px; }
+    .press-head img { width: 84px; height: 84px; border-radius: 19px; }
+    .media { grid-template-columns: 1fr; } .media video { max-width: 260px; }
+    .gallery { grid-template-columns: 1fr 1fr; }
+    .key td { display: block; padding: 4px 16px; border-top: 0; } .key td:first-child { padding-top: 14px; width: auto; }
+    .key tr { display: block; border-top: 1px solid rgba(27,42,29,.18); padding-bottom: 12px; } .key tr:first-child { border-top: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+<header class="topline">
+  <a class="brand" href="../"><img src="../img/icon-64.png" alt=""><b>StepHaven</b></a>
+  <nav><a href="../journal/" class="hide-sm">Journal</a><a href="./" aria-current="page">Press</a><a class="get" href="https://apps.apple.com/app/id6817135263">Get the app</a></nav>
+</header>
+<main class="press">
+
+<header class="press-head">
+  <img src="files/stephaven-icon-1024.png" alt="StepHaven app icon">
+  <div>
+    <h1>StepHaven<span>press kit</span></h1>
+    <p>A cozy town builder for iPhone where your real steps build the town.</p>
+  </div>
+</header>
+<ul class="jump">
+  <li><a href="#facts">Facts</a></li>
+  <li><a href="#about">About</a></li>
+  <li><a href="#video">Video</a></li>
+  <li><a href="#screenshots">Screenshots</a></li>
+  <li><a href="#art">Art</a></li>
+  <li><a href="#contact">Contact</a></li>
+</ul>
+
+<section id="facts">
+  <h2>Facts</h2>
+  <div class="key">
+    <table>
+      <tr><td>Name</td><td>StepHaven</td></tr>
+      <tr><td>Developer</td><td>Brody Richmond</td></tr>
+      <tr><td>Release</td><td>October 2026</td></tr>
+      <tr><td>Platform</td><td>iPhone, iOS 26.5 or later</td></tr>
+      <tr><td>Genre</td><td>Cozy town builder, step counter</td></tr>
+      <tr><td>Price</td><td>Free to play. Optional StepHaven+ membership and item packs. Points can't be bought; they're only earned by walking.</td></tr>
+      <tr><td>Ads</td><td>None</td></tr>
+      <tr><td>Languages</td><td>English, German, Spanish, French, Dutch, Portuguese, Japanese, Korean, Traditional Chinese</td></tr>
+      <tr><td>App Store</td><td><a href="https://apps.apple.com/app/id6817135263">apps.apple.com/app/id6817135263</a></td></tr>
+    </table>
+  </div>
+  <p><a class="dl" href="files/stephaven-fact-sheet.pdf">Fact sheet (PDF)</a></p>
+</section>
+
+<section id="about">
+  <h2>About</h2>
+  <p>StepHaven turns the steps you walk into a little town. Your iPhone already counts your steps; StepHaven reads them from Apple Health and turns each step into a point to spend on cottages, gardens, ponds, trees and villagers. A short walk buys a flower bed. A long weekend hike might buy a lighthouse.</p>
+  <p>Most step counters show you a number. StepHaven shows you a town that only exists because you went outside.</p>
+
+  <h3>Features</h3>
+  <ul class="plain">
+    <li>Over 500 things to build, including more than 40 kinds of tree</li>
+    <li>A Workshop for designing your own houses, cottages and shops</li>
+    <li>Villagers who move in, wander, chat and visit each other</li>
+    <li>The real time of day and real seasons: dawn mist, lit windows at night, snow in winter</li>
+    <li>Shared havens: build one town with friends over iCloud</li>
+    <li>Wild animals that visit and leave presents</li>
+    <li>Wheelchair pushes count the same as steps</li>
+    <li>Home Screen and Lock Screen widgets, and a Live Activity for workouts</li>
+    <li>Every building, tree and animal is drawn in code</li>
+  </ul>
+
+  <h3>At launch</h3>
+  <ul class="plain">
+    <li><b>Halloween Town</b>, through October 31: haunted houses, jack-o'-lanterns and a candlelit fair.</li>
+    <li><b>The Pioneer Gnome</b>: everyone who downloads StepHaven by November 8 gets a founders' statue that won't be offered again.</li>
+  </ul>
+
+  <h3>Privacy</h3>
+  <p>Step data never leaves the phone. There are no accounts and no ads. Read the <a href="https://bmrich12.github.io/stephaven-privacy/">privacy policy</a>.</p>
+</section>
+
+<section id="video">
+  <h2>Video</h2>
+  <div class="media">
+    <video src="../img/preview.mp4" poster="../img/preview-poster.jpg" controls muted playsinline preload="metadata"></video>
+    <div>
+      <p>The App Store preview: 30 seconds of the game as players see it.</p>
+      <a class="dl" href="../img/preview.mp4" download>Download the preview (MP4)</a>
+    </div>
+  </div>
+</section>
+
+<section id="screenshots">
+  <h2>Screenshots</h2>
+  <p>The App Store screenshots. Tap one for the full size.</p>
+  <div class="shots">
+    <a href="../img/shot-01.jpg"><img src="../img/shot-01.jpg" alt="StepHaven screenshot 1" loading="lazy"></a>
+    <a href="../img/shot-02.jpg"><img src="../img/shot-02.jpg" alt="StepHaven screenshot 2" loading="lazy"></a>
+    <a href="../img/shot-03.jpg"><img src="../img/shot-03.jpg" alt="StepHaven screenshot 3" loading="lazy"></a>
+    <a href="../img/shot-04.jpg"><img src="../img/shot-04.jpg" alt="StepHaven screenshot 4" loading="lazy"></a>
+    <a href="../img/shot-05.jpg"><img src="../img/shot-05.jpg" alt="StepHaven screenshot 5" loading="lazy"></a>
+    <a href="../img/shot-06.jpg"><img src="../img/shot-06.jpg" alt="StepHaven screenshot 6" loading="lazy"></a>
+    <a href="../img/shot-07.jpg"><img src="../img/shot-07.jpg" alt="StepHaven screenshot 7" loading="lazy"></a>
+  </div>
+</section>
+
+<section id="art">
+  <h2>Art</h2>
+  <p>High-resolution captures with no interface, 3840 pixels wide. Tap one to download. Free to use in coverage of StepHaven.</p>
+  <div class="gallery">
+    <a href="files/village-afternoon.jpg"><img src="files/village-afternoon-thumb.jpg" alt="A village of cottages beside a stream" loading="lazy"><span>A village in the afternoon</span></a>
+    <a href="files/cottage-garden.jpg"><img src="files/cottage-garden-thumb.jpg" alt="Thatched cottages and vegetable gardens" loading="lazy"><span>Cottage gardens</span></a>
+    <a href="files/spring-canal-town.jpg"><img src="files/spring-canal-town-thumb.jpg" alt="Townhouses along a canal with cherry blossom" loading="lazy"><span>A canal town in spring</span></a>
+    <a href="files/halloween-town.jpg"><img src="files/halloween-town-thumb.jpg" alt="A Halloween town of purple houses and pumpkins" loading="lazy"><span>Halloween Town</span></a>
+    <a href="files/gnome-garden.jpg"><img src="files/gnome-garden-thumb.jpg" alt="A garden square around a giant gnome statue" loading="lazy"><span>A gnome garden</span></a>
+    <a href="files/pioneer-gnome.png"><img src="files/pioneer-gnome-thumb.png" alt="The Pioneer Gnome statue" loading="lazy"><span>The Pioneer Gnome (transparent PNG)</span></a>
+  </div>
+  <h3>Icon and events</h3>
+  <a class="dl quiet" href="files/stephaven-icon-1024.png">App icon, 1024 px</a>
+  <a class="dl quiet" href="files/event-pioneer-card.jpg">Pioneer Gnome event art</a>
+  <a class="dl quiet" href="files/event-halloween-card.jpg">Halloween Town event art</a>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="contact">
+    <p style="margin:0">Brody Richmond<br>
+    For press, review codes or interviews: <a href="https://bmrich12.github.io/stephaven-privacy/support/">bmrich12.github.io/stephaven-privacy/support</a></p>
+  </div>
+</section>
+
+</main>
+<footer class="imprint">
+  <div class="wrap">
+    <span class="scale"><span class="scalebar" aria-hidden="true"><i></i><i></i><i></i><i></i></span>© 2026 Northlane</span>
+    <nav aria-label="Site"><a href="../">StepHaven</a><a href="../journal/">Journal</a><a href="https://bmrich12.github.io/stephaven-privacy/">Privacy</a><a href="https://bmrich12.github.io/stephaven-privacy/support/">Support</a></nav>
+  </div>
+</footer>
+</div>
+</body>
+</html>

@@ -7,8 +7,7 @@
 <meta name="description" content="Notes from the making of StepHaven, the cozy town builder for iPhone you play by walking: how it works, who it's for, and what's new.">
 <link rel="canonical" href="https://stephaven.app/journal/">
 <meta name="apple-itunes-app" content="app-id=6817135263">
-<meta name="theme-color" content="#FBF4E6" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#1D2418" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#E5EDC6">
 <meta property="og:type" content="website">
 <meta property="og:title" content="The StepHaven Journal">
 <meta property="og:description" content="Notes from the making of StepHaven, the cozy town builder you play by walking.">
@@ -16,45 +15,46 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../img/icon-64.png">
 <link rel="apple-touch-icon" href="../img/icon-180.png">
-<link rel="stylesheet" href="journal.css">
+<link rel="preload" href="../fonts/BarlowCondensed-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/Barlow-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../site.css?v=13">
+<link rel="stylesheet" href="journal.css?v=9">
 </head>
 <body>
 
-<div class="bar"><div class="wrap">
-  <a class="brand" href="../"><img src="../img/icon-64.png" alt="">StepHaven</a>
+<div class="sheet">
+<header class="topline">
+  <a class="brand" href="../"><img src="../img/icon-64.png" alt=""><b>StepHaven</b></a>
   <nav>
     <a href="./" aria-current="page">Journal</a>
     <a class="get" href="https://apps.apple.com/app/id6817135263">Get the app</a>
   </nav>
-</div></div>
+</header>
 
 <main class="wrap">
   <div class="intro">
-    <h1>The StepHaven Journal</h1>
+    <h1>The StepHaven<span>Journal</span></h1>
     <p>Notes on the cozy town builder you play by walking: how it works, who it's for, and what's new in the village.</p>
   </div>
 
   <div class="posts">
     <a class="post" href="steps-into-a-town/">
-      <img src="img/village-afternoon.jpg" alt="" width="1440" height="810">
+      <picture><source type="image/avif" srcset="img/village-afternoon.avif"><img src="img/village-afternoon.jpg" alt="" width="1440" height="810"></picture>
       <div class="body">
-        <div class="meta">How it works</div>
         <h2>How StepHaven turns your steps into a town</h2>
         <p>What a walk buys, why steps can't be bought, and the little town that lives on while you're out.</p>
       </div>
     </a>
     <a class="post" href="every-kind-of-moving/">
-      <img src="img/spring-canal-town.jpg" alt="" width="1440" height="810" loading="lazy">
+      <picture><source type="image/avif" srcset="img/spring-canal-town.avif"><img src="img/spring-canal-town.jpg" alt="" width="1440" height="810" loading="lazy"></picture>
       <div class="body">
-        <div class="meta">Accessibility</div>
         <h2>Every kind of moving counts</h2>
         <p>Wheelchair pushes count like steps, and Ember turns rides, swims and other workouts into points.</p>
       </div>
     </a>
     <a class="post" href="building-with-friends/">
-      <img src="img/cottage-garden.jpg" alt="" width="1440" height="810" loading="lazy">
+      <picture><source type="image/avif" srcset="img/cottage-garden.avif"><img src="img/cottage-garden.jpg" alt="" width="1440" height="810" loading="lazy"></picture>
       <div class="body">
-        <div class="meta">Together</div>
         <h2>Building a town with friends</h2>
         <p>Share a town with up to eight people. Everyone builds in the same place, with their own steps.</p>
       </div>
@@ -62,7 +62,7 @@
   </div>
 </main>
 
-<footer>
+<footer class="imprint">
   <div class="wrap">
     <span>© 2026 Northlane</span>
     <nav>
@@ -73,5 +73,6 @@
     </nav>
   </div>
 </footer>
+</div>
 </body>
 </html>
