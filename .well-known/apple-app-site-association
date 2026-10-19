@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["7U4U3CQ357.com.northlane.stepCty"],
+        "components": [
+          { "/": "/haven/*", "comment": "StepHaven Social: a friend's shared haven" }
+        ]
+      }
+    ]
+  }
+}

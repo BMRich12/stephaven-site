@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A Shared Haven · StepHaven</title>
+<meta name="description" content="A friend shared their StepHaven town with you. Open it in StepHaven to look round.">
+<meta name="robots" content="noindex">
+<meta name="apple-itunes-app" content="app-id=6817135263">
+<meta name="theme-color" content="#E5EDC6">
+<meta property="og:title" content="A friend shared their haven with you">
+<meta property="og:description" content="Open it in StepHaven to walk round their town.">
+<meta property="og:image" content="https://stephaven.app/img/og.jpg?v=2">
+<link rel="icon" href="../img/icon-64.png">
+<link rel="apple-touch-icon" href="../img/icon-180.png">
+<!-- StepHaven Social's link page. It shows NO picture of the haven on
+     purpose: a shared haven is only ever seen inside the app, where it can
+     be reported. With the app installed the link opens it directly
+     (Associated Domains) and this page doesn't show; otherwise it offers
+     the App Store, and a button that hands the code over as
+     stephaven://haven/CODE. -->
+<style>
+  @font-face { font-family: 'Barlow Condensed'; font-weight: 800; font-display: swap; src: url(../fonts/BarlowCondensed-800.woff2) format('woff2'); }
+  @font-face { font-family: 'Barlow'; font-weight: 500; font-display: swap; src: url(../fonts/Barlow-500.woff2) format('woff2'); }
+  @font-face { font-family: 'Barlow'; font-weight: 600; font-display: swap; src: url(../fonts/Barlow-600.woff2) format('woff2'); }
+  :root {
+    color-scheme: light;
+    --field: #E7EECB; --margin: #F6F8EA; --ink: #1B2A1D; --ink-soft: #3B4E3D;
+    --path: #D33F27; --path-deep: #A82E1A; --sign: #285E33;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; background: var(--field); color: var(--ink); }
+  body {
+    font-family: Barlow, system-ui, sans-serif; font-weight: 500;
+    display: grid; place-items: center; min-height: 100vh; padding: 24px 16px;
+    background-image:
+      linear-gradient(rgba(47,111,163,.10) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(47,111,163,.10) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  main {
+    width: 100%; max-width: 420px; background: var(--margin); border-radius: 22px;
+    padding: 32px 24px 26px; text-align: center;
+    box-shadow: 0 1px 0 rgba(27,42,29,.08), 0 18px 40px -18px rgba(27,42,29,.35);
+  }
+  img.icon { width: 84px; height: 84px; border-radius: 19px; box-shadow: 0 6px 16px -6px rgba(27,42,29,.4); }
+  h1 {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800;
+    font-size: 40px; line-height: .95; margin: 18px 0 10px; letter-spacing: .005em;
+  }
+  p { color: var(--ink-soft); font-size: 17px; line-height: 1.45; margin: 0 0 22px; }
+  .button {
+    display: block; width: 100%; padding: 15px 18px; border-radius: 14px; text-decoration: none;
+    font-weight: 600; font-size: 18px;
+  }
+  .open { background: var(--path); color: #fff; }
+  .open:active { background: var(--path-deep); }
+  .store { margin-top: 10px; color: var(--sign); background: rgba(40,94,51,.08); }
+  .small { margin: 18px 0 0; font-size: 13px; color: var(--ink-soft); opacity: .8; }
+  .gone { display: none; }
+</style>
+</head>
+<body>
+<main>
+  <img class="icon" src="../img/icon-180.png" alt="">
+  <h1 id="title">A friend shared their haven</h1>
+  <p id="lede">Open it in StepHaven to walk round their town. It's free to look.</p>
+  <a class="button open" id="open" href="stephaven://">Open in StepHaven</a>
+  <a class="button store" href="https://apps.apple.com/app/id6817135263">Get StepHaven on the App Store</a>
+  <p class="small" id="note">StepHaven is a cozy town builder you play by walking. iPhone only.</p>
+</main>
+<script>
+  (function () {
+    var code = (new URLSearchParams(location.search).get('c') || '').toUpperCase();
+    var valid = /^[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{10}$/.test(code);
+    var open = document.getElementById('open');
+    if (!valid) {
+      document.getElementById('title').textContent = 'This link looks broken';
+      document.getElementById('lede').textContent = 'Ask your friend to send their haven link again.';
+      open.classList.add('gone');
+      return;
+    }
+    // No jump to the app on load: with the app installed, iOS opens it from
+    // the link itself (Associated Domains) and this page never shows; without
+    // it, Safari would answer stephaven:// with an "address is invalid" alert.
+    // The button covers the rest (a link pasted into Safari, say).
+    open.href = 'stephaven://haven/' + code;
+  })();
+</script>
+</body>
+</html>
