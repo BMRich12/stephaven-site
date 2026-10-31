@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A cozy town with no image files · StepHaven Journal</title>
+<meta name="description" content="Every tree, cottage, villager and waterfall in StepHaven is drawn by Core Graphics code while you play. How that works, and the bugs that taught the most: isometric wall planes, a float-precision depth bug, a launch-watchdog kill, villagers every phone agrees on, and CloudKit with no server.">
+<link rel="canonical" href="https://stephaven.app/journal/drawn-in-code/">
+<meta name="apple-itunes-app" content="app-id=6817135263">
+<meta name="theme-color" content="#E5EDC6">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="StepHaven">
+<meta property="og:url" content="https://stephaven.app/journal/drawn-in-code/">
+<meta property="og:title" content="A cozy town with no image files">
+<meta property="og:description" content="How StepHaven draws a whole town in Core Graphics code, generates its world from a seed, and syncs shared towns over CloudKit with no server.">
+<meta property="og:image" content="https://stephaven.app/img/og/drawn-in-code.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A cozy town with no image files, beside a village by a river at dusk.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@TryStepHaven">
+<meta name="twitter:image" content="https://stephaven.app/img/og/drawn-in-code.jpg">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/img/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="../../img/icon-180.png">
+<link rel="preload" href="../../fonts/BarlowCondensed-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../fonts/Barlow-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../site.css?v=13">
+<link rel="stylesheet" href="../journal.css?v=9">
+<style>
+  /* Code and paired pictures: only this post needs them. */
+  article pre { background: #F1F4E4; border: 2px solid var(--ink); border-radius: 10px; padding: 16px 18px; margin: 4px 0 26px;
+    overflow-x: auto; font: 14px/1.55 ui-monospace, "SF Mono", Menlo, Consolas, monospace; color: var(--ink); -webkit-text-size-adjust: none; }
+  article pre .c { color: #5E6F5F; }
+  article :not(pre) > code { font: .88em ui-monospace, "SF Mono", Menlo, Consolas, monospace; background: #EEF2DF;
+    padding: 1px 5px; border-radius: 4px; white-space: nowrap; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .pair picture { display: block; }
+  .pair img { width: 100%; }
+  @media (max-width: 480px) { .pair { grid-template-columns: 1fr; } article pre { font-size: 12.5px; padding: 14px; } }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "A cozy town with no image files",
+  "description": "How StepHaven draws a whole town in Core Graphics code, generates its world from a seed, and syncs shared towns over CloudKit with no server.",
+  "image": "https://stephaven.app/journal/drawn-in-code/img/village-dusk.jpg",
+  "datePublished": "2026-10-31",
+  "author": { "@type": "Person", "name": "Brody Richmond" },
+  "about": {
+    "@type": ["VideoGame", "MobileApplication"],
+    "@id": "https://stephaven.app/#app",
+    "name": "StepHaven",
+    "url": "https://stephaven.app/"
+  },
+  "mainEntityOfPage": "https://stephaven.app/journal/drawn-in-code/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "StepHaven",
+      "item": "https://stephaven.app/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Journal",
+      "item": "https://stephaven.app/journal/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "A cozy town with no image files",
+      "item": "https://stephaven.app/journal/drawn-in-code/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="sheet">
+<header class="topline">
+  <a class="brand" href="../../"><img src="../../img/icon-64.png" alt=""><b>StepHaven</b></a>
+  <nav>
+    <a href="../" aria-current="page">Journal</a>
+    <a class="get" href="https://apps.apple.com/app/apple-store/id6817135263?pt=127985050&amp;ct=website&amp;mt=8">Get the app</a>
+  </nav>
+</header>
+
+<article class="card">
+  <header class="read">
+    <h1>A cozy town with no image files</h1>
+    <p class="dek">Every tree, cottage, villager and waterfall in StepHaven is drawn by Core Graphics code while you play. Here's how that works, and the bugs that taught me the most.</p>
+    <p class="byline">October 31, 2026 · Brody Richmond</p>
+  </header>
+
+  <figure class="cover">
+    <picture><source type="image/avif" srcset="img/village-dusk.avif"><img src="img/village-dusk.jpg" alt="An isometric village at dusk: cottages with smoking chimneys, a canal with a flowered bridge, lamp posts, a well, a fountain, a koi pond and villagers on cobbled lanes" width="1440" height="810"></picture>
+    <figcaption>Everything here was drawn by code at runtime.</figcaption>
+  </figure>
+
+  <div class="read">
+    <p>StepHaven is a cozy town builder for iPhone. You walk, your steps become points, and you spend the points on cottages, trees, ponds and railways. That's the game. This post is about how it's made, because the way it's made is a little unusual.</p>
+    <p>The game has no image files. No sprite sheets, no PNGs exported from a drawing app, nothing from an image generator. Every picture on the map, from one blade of grass to a steam train and its carriages, is a Swift function that draws into a Core Graphics context. The result is cached as an <code>SKTexture</code> and handed to SpriteKit. That drawing code, a type called <code>MapArt</code>, is now about 128,000 lines spread over more than 200 files. The whole app is about 275,000 lines of Swift.</p>
+    <p>(Two honest footnotes. The app icon is an ordinary image. And the asset catalog still holds four onboarding pictures from an early build that nothing uses any more. They're on the list to remove.)</p>
+    <p>The world isn't stored either. The terrain is a pure function of a seed, and the only thing saved is what you've built. Friends can share a town over CloudKit, with no server of mine in between.</p>
+    <p>These are the stories from building it that I'd most want to read if someone else had written them.</p>
+
+    <h2>1. Drawing on walls</h2>
+    <p>The map is classic 2:1 isometric. A tile is a 128 × 64 diamond, and grid square (x, y) lands at scene position ((x − y) × 64, (x + y) × −32). A building's two visible walls run at slopes of +0.5 and −0.5 on screen.</p>
+    <p>At first I drew windows by nudging coordinates until they looked about right. They never did. A window whose top edge has even a slightly different slope from its wall looks distorted, and it is. The fix was a tiny type that every detail on a wall now goes through:</p>
+<pre><code>struct WallPlane {
+    let origin: CGPoint
+    <span class="c">/// Rise per unit along the wall: +0.5 shaded, -0.5 lit.</span>
+    let slope: CGFloat
+
+    func point(_ u: CGFloat, _ v: CGFloat) -> CGPoint {
+        CGPoint(x: origin.x + u, y: origin.y + u * slope + v)
+    }
+}</code></pre>
+    <p>Windows, doors, shutters, sills, flower boxes and shop displays are laid out in the wall's own coordinates (u along it, v down it) and projected. Nothing on a wall is placed in screen space.</p>
+    <p>The same rule caught a quieter bug. At night, windows glow, and the glow positions were a hand-written list of points. For the first townhouses I wrote the list from my plan and drew the art afterwards, and the lights landed on blank brickwork. Now the lights come from the same geometry the art uses: replay the window calls through the wall plane and take each window's true centre. Only some windows are lit, scattered unevenly, because a building with every light on looks like a showroom.</p>
+    <p>The sun never moves. It's always in the northeast, so the left wall is always the shaded tone and the right wall the lit one. When a building is turned to face the other way, the canvas is flipped and every light and dark pair is swapped, so the sun stays where it was.</p>
+
+    <figure class="figure">
+      <picture><source type="image/avif" srcset="img/cottage-closeup.avif"><img src="img/cottage-closeup.jpg" alt="A close-up of a thatched cottage with wavy eaves, a stone chimney, small paned windows and flower boxes, beside a timbered house, a shepherd's hut and flower beds" width="1440" height="900" loading="lazy"></picture>
+      <figcaption>Zoomed right in. The thatch, panes and flower boxes are paths laid out in each wall's plane.</figcaption>
+    </figure>
+
+    <h2>2. Most art bugs are perception bugs</h2>
+    <p>Art drawn in code fails in a particular way. The geometry is right and the picture is still wrong, because it reads as something else. The project's notes are full of these, written down so they don't get relearned:</p>
+    <ul>
+      <li>Bushes drawn as scalloped spheres with a shine read as plastic. Long leaves splayed sideways read as a hedgehog.</li>
+      <li>Moss as big round cushions read as lily pads. Moss as single dots read as polka dots.</li>
+      <li>Rock columns striped in equal horizontal bands read as sedimentary layers, and a tall stack of them as pancakes. They had to break into vertical blocks.</li>
+      <li>A row of round flints in a chalk cliff read as domino dots.</li>
+      <li>Monstera leaves drawn too narrow read as banana leaves. Cut with short slits, they read as leaves with dashes on them.</li>
+    </ul>
+    <p>My favourite was the conifers. Every pine tier was a triangle with a toothed lower edge, split down its axis into a shaded half and a lit half. The result looked like paper folded down the middle. Two changes fixed it. The lower edge became the front half of a 2:1 ellipse, because the camera looks down on a ring of boughs, not a flat fringe. And the shading runs in five wedges fanning out from the tip, because on a cone the shade runs in lines from the tip down to the rim, so the tone changes gradually around it, not in one vertical split.</p>
+    <p>The seasons work the same way. There's no winter copy of anything. The houses and the ground take the season as a parameter: snow is laid on every visible roof face down to a wavering edge just short of the eave, pale blue on the shaded faces, with icicles along the eaves and a snowy wash drawn into the grass.</p>
+
+    <figure class="figure">
+      <div class="pair">
+        <picture><source type="image/avif" srcset="../../img/dial/summer-midday-900.avif"><img src="../../img/dial/summer-midday-900.jpg" alt="A village square at midday in summer, with green grass and brown and blue roofs" width="900" height="562" loading="lazy"></picture>
+        <picture><source type="image/avif" srcset="../../img/dial/winter-midday-900.avif"><img src="../../img/dial/winter-midday-900.jpg" alt="The same village square in winter, with snow on every roof, icicles and frosted grass" width="900" height="562" loading="lazy"></picture>
+      </div>
+      <figcaption>The same square in summer and winter: the same drawing functions, with the season passed in.</figcaption>
+    </figure>
+
+    <h2>3. A depth bug that was really a float</h2>
+    <p>SpriteKit draws in order of <code>zPosition</code>. StepHaven sorts everything by screen y within bands: flat ground far below, cast shadows above that, standing things like houses, trees and villagers around zero, and night lights up near 66,000. The ground band used to sit at −100,000.</p>
+    <p>Then painted ground started drawing its layers in the wrong order. A tile's paint sits at +0.03 and the soft edge blending it into the next paint at +0.032, just 0.002 higher. SpriteKit stores <code>zPosition</code> as a 32-bit float, and at 100,000 a float can only step by about 0.008. Both layers came out at exactly the same z and drew in whatever order they'd been added.</p>
+    <p>Standing things only span about ±101 (the map is about 630 rows deep on screen, and each row adds 0.32), so the bands only had to clear that. They moved much closer to zero, where a float resolves about 0.0001:</p>
+<pre><code><span class="c">// They used to be -100,000 and -50,000, but SpriteKit keeps z as a
+// 32-bit float, which out there is only good to ~0.008: layers 0.002
+// apart on one tile came out at the SAME z and drew in child order.</span>
+private static let groundBand: CGFloat = -1_000
+private static let shadowBand: CGFloat = -450</code></pre>
+    <p>The bigger depth lesson came with raised ground. Splitting ground from objects assumes ground can never cover anything, which stops being true the moment a tile is lifted. A column 17 steps high draws 272 points above its flat position, over screen space that belongs to tiles eight rows behind it, and everything standing there drew straight through it. Raised tiles now sort as what they are: solid blocks at their own grid position, just under whatever stands on top of them.</p>
+    <p>The rule that makes any number of levels work: depth always comes from the flat grid, never from where the lifted tile appears on screen. From a fixed isometric camera a heightfield hides things in exactly flat-grid order. Height decides which band a surface belongs in, never its order within that band. Moving villagers follow the same rule: work out a villager's depth from its lifted screen position and houses start drawing through cliffs two levels up.</p>
+
+    <figure class="figure phone">
+      <picture><source type="image/avif" srcset="img/terraces-falls.avif"><img src="img/terraces-falls.jpg" alt="A phone screenshot of terraced riverside streets with two waterfalls between levels, a stone bridge with a villager crossing it, and a swan pedal boat on the water below" width="600" height="1304" loading="lazy"></picture>
+      <figcaption>Terraces and waterfalls. The falls aren't placed: they appear wherever water stands above water.</figcaption>
+    </figure>
+
+    <h2>4. The launch watchdog only bites when Xcode isn't watching</h2>
+    <p>Small hills are drawn pixel by pixel: a height field shaded against the sun into a bitmap, at 3x so it stays sharp when you zoom in. The first renderer searched the height field separately for every pixel, which took about 0.9 seconds a texture in a Debug build. A column scan (walk each column of pixels from front to back, and fill rows only when a sample stands higher than everything in front of it) brought that down to about 0.05.</p>
+    <p>That wasn't the real bug, though. Loading a town drew every hill it needed straight away, in the first frame. For a test town covered in hills, that was about 20 seconds in Debug. Run from Xcode it worked: slowly, but it worked. Launched from the home screen it showed a black screen and was killed with <code>0x8BADF00D</code>. The debugger switches off iOS's launch watchdog, so the bug only existed away from the debugger.</p>
+    <p>Three fixes, all still in place:</p>
+    <ul>
+      <li><strong>Hills draw off the main thread.</strong> The tile shows its flat ground until its hill is ready, then the hill fades in.</li>
+      <li><strong>Every drawn texture is cached on disk</strong> as a PNG, in a folder named after the <code>LC_UUID</code> of the binary that drew it. A new build starts with an empty folder and old ones are deleted, so a cache key only has to describe the picture, not the code that drew it. Main-thread time to load a town went from about 4.5 seconds to about 0.8 on an iPhone 17 Pro Max.</li>
+      <li><strong>Loading is a queue</strong>, worked through about 12 milliseconds per frame, under a layer of clouds that part when the town is ready.</li>
+    </ul>
+    <p>One more for anyone putting SpriteKit inside SwiftUI. A plain <code>SKView</code> skips drawing off-screen nodes by default, but <code>SpriteView</code> only turns on the options you pass it, and its default is none. Adding <code>.shouldCullNonVisibleNodes</code> took one screen of a small town from 3,399 draw calls to 425. Packing the common ground textures onto one shared atlas page then took it to 125, because SpriteKit only batches consecutive draws that share a texture.</p>
+
+    <h2>5. Villagers that every phone agrees on</h2>
+    <p>Shared towns raised an odd question. If two friends look at the same street at the same moment, should they see the same villagers? I decided yes, and without sending a single villager position over the network.</p>
+    <p>The terrain already worked like that. <code>World</code> is a struct of pure functions over a seed and a grid square. Every layer of noise uses its own seeded SplitMix64 generator, keyed by the square, the seed and a salt, so a chunk can unload and come back identical, and a friend's phone builds the same mountains and rivers from the same seed:</p>
+<pre><code>init(x: Int, y: Int, seed: UInt64, salt: UInt64 = 0) {
+    var s = seed
+    s = s &amp;+ (salt &amp;* 0x9E3779B97F4A7C15)
+    s = s &amp;+ (UInt64(bitPattern: Int64(x)) &amp;* 0xBF58476D1CE4E5B9)
+    s = s &amp;+ (UInt64(bitPattern: Int64(y)) &amp;* 0x94D049BB133111EB)
+    state = s == 0 ? 0x9E3779B97F4A7C15 : s
+}</code></pre>
+    <p>So villagers became the same kind of thing: a function of the seed, the town and the wall clock. Time runs in six-minute cycles of fifteen 24-second beats. A villager leaves home at the start of a cycle, goes on outings whose destinations are rolled from the world, the home, the cycle and the beat, follows a deterministic A* route, and is home by the last beat. Each frame just asks where the plan puts them now. Wild animals work the same way, one possible visit per 10-second slot.</p>
+    <p>The traps were all hidden randomness. Anything read out of a Swift dictionary has to be sorted first: Swift seeds its hashing per launch, so the order differs from one phone, and one launch, to the next. The clock has to be the wall clock, not SpriteKit's time since launch. Night has to be the same night for everyone, so a shared town keeps its creator's time zone. And when a friend's edit arrives, plans already made are kept, and only the future is re-planned against the new town, or the two phones drift apart.</p>
+    <p>To check it, a debug build logged every villager's tile and every visiting animal's position every five seconds, on the wall-clock mark. I pulled the log off a phone and diffed it against the simulator's. The wildlife matched at every instant. The villagers matched from the start of the next cycle once both phones agreed on the time of day, and they stayed in step through a friend's edit.</p>
+
+    <figure class="figure phone">
+      <picture><source type="image/avif" srcset="img/winter-square.avif"><img src="img/winter-square.jpg" alt="A phone screenshot of a snowy village square in the evening, with a bonfire, benches, a sled, a woodpile and villagers chatting in small groups" width="600" height="1304" loading="lazy"></picture>
+      <figcaption>Two phones looking at this square see the same people in the same places.</figcaption>
+    </figure>
+
+    <h2>6. Sharing a town with CloudKit and no server</h2>
+    <p>A shared town is one CloudKit record zone in its creator's private database, shared whole with a zone-wide <code>CKShare</code>. The town is split into one record per thing per tile, keyed like <code>nature:12,-4</code>, and each record carries a version: a time and a player id. Merging is per record and the newest version wins. Deletions are kept as tombstones, so a bench one friend removed can't come back from another friend's older copy. An invite is a six-character code in the public database that points at the share, and the creator approves each person who asks to join.</p>
+    <p>No edit reports itself to the sync code. Every save compares the town's records with the previous save and queues the difference to send, so anything that changes the town syncs, including features written long after the sync layer.</p>
+    <p>Two lessons only showed up once I tested with two real iCloud accounts. First: when one record in a save batch conflicts, CloudKit fails every other record in that batch with <code>batchRequestFailed</code> ("Atomic failure"), even when the save isn't atomic. I'd treated that as fatal, and because the push ran before the pull, a phone that had painted over its friend's tiles got stuck on its own version for good, retrying the same batch every 20 seconds. Now those records are simply sent again, and the pull runs even if the push fails.</p>
+    <p>Second: merging a friend's changes rebuilds the SpriteKit scene, and my first version rebuilt the SwiftUI view around it too. Any edit from a friend closed your inventory if you had it open. Now only the scene is swapped, under a snapshot of the map that fades out once the new scene is drawn.</p>
+    <p>Silent pushes from a CloudKit subscription wake the other phone. In testing, a change showed up there about four seconds after it was made.</p>
+
+    <h2>How it was actually made</h2>
+    <p>I designed StepHaven and built it with AI coding tools, mostly Claude Code. Every lesson in this post lives in one notes file at the root of the project, now over 11,000 lines, written as rules with the reason attached ("Never compute z from a <code>surfacePosition</code>"; "scalloped spheres with glints read as plastic"). Claude Code reads it at the start of every session. It ended up as the project's art bible and its bug history in one, and it's the main reason the mistakes above didn't come back.</p>
+    <p>None of the pictures come from an image model. They're drawing code, checked by rendering contact sheets and looking at them hard. The sound is a mix: some effects are synthesized in code, and the recorded ambience, effects and jukebox music were generated with ElevenLabs.</p>
+    <p>If you build things in Core Graphics or SpriteKit and want to compare notes, I'd love to <a href="mailto:northlaneapps@gmail.com">hear from you</a>.</p>
+
+    <div class="download">
+      <img src="../../img/icon-180.png" alt="StepHaven app icon">
+      <div>
+        <h3>StepHaven: Cozy Town Builder</h3>
+        <p>Free on iPhone. No ads, and your steps stay on your phone.</p>
+        <a class="badge" href="https://apps.apple.com/app/apple-store/id6817135263?pt=127985050&amp;ct=website&amp;mt=8" aria-label="Download StepHaven on the App Store"><svg viewBox="0 0 24 30" aria-hidden="true"><path d="M19.6 16c0-3 2.5-4.4 2.6-4.5-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.6 1.1-4.6 1.1-1 0-2.4-1.1-4-1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.2 1.5 12.2 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 3.9-1s2.4 1 4 1c1.6 0 2.7-1.5 3.7-3 1.2-1.7 1.6-3.3 1.7-3.4-.1 0-3.2-1.2-3.2-5zM16.6 6.9c.8-1 1.4-2.4 1.2-3.8-1.2.1-2.7.8-3.5 1.8-.8.9-1.5 2.3-1.3 3.7 1.3.1 2.7-.7 3.6-1.7z"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
+      </div>
+    </div>
+
+    <div class="more">
+      <h2>More from the journal</h2>
+      <ul>
+        <li><a href="../your-first-week/">Your first week in StepHaven: a beginner's guide</a></li>
+        <li><a href="../steps-into-a-town/">How StepHaven turns your steps into a town</a></li>
+        <li><a href="../building-with-friends/">Building a town with friends</a></li>
+        <li><a href="../every-kind-of-moving/">Every kind of moving counts: wheelchair pushes and Ember workouts</a></li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<footer class="imprint">
+  <div class="wrap">
+    <span>© 2026 StepHaven</span>
+    <nav>
+      <a href="../../">StepHaven</a>
+      <a href="../../changelog/">What's New</a>
+      <a href="../">Journal</a>
+      <a href="https://www.tiktok.com/@stephavenapp" rel="me">TikTok</a>
+      <a href="https://www.youtube.com/@StepHavenOfficial" rel="me">YouTube</a>
+      <a href="https://x.com/TryStepHaven" rel="me">X</a>
+      <a href="https://www.pinterest.com/stephavengame/" rel="me">Pinterest</a>
+      <a href="https://bmrich12.github.io/stephaven-privacy/">Privacy</a>
+      <a href="https://bmrich12.github.io/stephaven-privacy/support/">Support</a>
+    </nav>
+  </div>
+</footer>
+</div>
+</body>
+</html>
