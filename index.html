@@ -30,11 +30,19 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
+  "@type": ["VideoGame", "MobileApplication"],
+  "@id": "https://stephaven.app/#app",
   "name": "StepHaven",
-  "alternateName": "StepHaven: Cozy Town Builder",
+  "alternateName": [
+    "StepHaven: Cozy Town Builder",
+    "Step Haven",
+    "StepHaven app",
+    "StepHaven game"
+  ],
+  "disambiguatingDescription": "An iPhone walking game, written as one word: StepHaven.",
   "url": "https://stephaven.app/",
   "operatingSystem": "iOS",
+  "gamePlatform": "iPhone",
   "applicationCategory": "GameApplication",
   "genre": [
     "Simulation",
@@ -73,8 +81,11 @@
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": "https://stephaven.app/#website",
   "name": "StepHaven",
-  "url": "https://stephaven.app/"
+  "alternateName": ["Step Haven", "StepHaven app"],
+  "url": "https://stephaven.app/",
+  "about": { "@id": "https://stephaven.app/#app" }
 }
 </script>
 <style>
@@ -110,7 +121,10 @@
             mask-image: linear-gradient(180deg, #000 0%, #000 55%, transparent 100%); }
   .cover-in { position: relative; z-index: 3; display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: 56px; align-items: center; padding-top: 72px; padding-bottom: 88px; max-width: 1320px; }
   .cover h1 { font-size: clamp(64px, 11vw, 96px); letter-spacing: -.005em; line-height: .86; }
-  .cover h1 span { display: block; color: var(--wood-deep); }
+  /* "Haven" on its own line, but one word in the page's text: as display:block
+     search engines read the name as "Step Haven". */
+  .cover h1 span { color: var(--wood-deep); }
+  .cover h1 span::before { content: "\A"; white-space: pre; }
   .cover .icon { width: 104px; height: 104px; border-radius: 24px; margin-bottom: 22px; box-shadow: 0 6px 16px rgba(27,42,29,.22); }
   .promise { font-size: clamp(21px, 2.4vw, 25px); line-height: 1.38; font-weight: 500; max-width: 22ch; margin: 18px 0 28px; }
   .fine { font-size: 15px; color: var(--ink-soft); margin: 12px 0 0; }
@@ -463,6 +477,7 @@
         <div>
           <h2 id="h-notes">Before you set off</h2>
           <div class="notes">
+            <details><summary>What is StepHaven?<span class="pm" aria-hidden="true"></span></summary><p>StepHaven, one word, is a cozy town-building game for iPhone, made by an independent developer. You play it by walking: your steps become points you spend on cottages, gardens, trains and boats for your own little town.</p></details>
             <details><summary>Is StepHaven free?<span class="pm" aria-hidden="true"></span></summary><p>Yes, it's free to play, with one town of your own and one to share. StepHaven+ is an optional membership that adds more Workshop shapes and styles and more towns. Item packs such as Cottage Garden are sold separately. Steps themselves are never for sale.</p></details>
             <details><summary>Do I need an Apple Watch?<span class="pm" aria-hidden="true"></span></summary><p>No. Your iPhone counts your steps on its own. A Watch adds the steps you take without your phone, and it's needed for Ember workouts and wheelchair pushes.</p></details>
             <details><summary>Can I play if I use a wheelchair?<span class="pm" aria-hidden="true"></span></summary><p>Yes. Turn on Count Wheelchair Pushes and the pushes your Apple Watch records earn points just like steps.</p></details>
