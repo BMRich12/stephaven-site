@@ -13,10 +13,13 @@
 <meta property="og:url" content="https://stephaven.app/press/">
 <meta property="og:title" content="StepHaven Press Kit">
 <meta property="og:description" content="A cozy town builder for iPhone where your real steps build the town.">
-<meta property="og:image" content="https://stephaven.app/img/og.jpg?v=2">
+<meta property="og:image" content="https://stephaven.app/img/og/press.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="StepHaven press kit: facts, screenshots, video, art and contact, beside a cozy village.">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@TryStepHaven">
+<meta name="twitter:image" content="https://stephaven.app/img/og/press.jpg">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/img/icon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="../img/icon-180.png">
@@ -66,6 +69,13 @@
   .gallery span { display: block; padding: 10px 12px 12px; font-size: 15px; font-weight: 600; }
   .contact { background: var(--sign); color: #fff; border-radius: 12px; padding: 24px 26px; outline: 2px solid #fff; outline-offset: -8px; max-width: 640px; }
   .contact a { color: #fff; }
+  .copybox { position: relative; background: var(--key); border: 2px solid var(--ink); padding: 16px 18px 14px; margin: 12px 0 18px; max-width: 760px; }
+  .copybox p { margin: 0; max-width: none; }
+  .copybox .label { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 8px;
+    font: 700 14px/1 var(--display); text-transform: uppercase; letter-spacing: .08em; color: var(--ink-soft); }
+  .copybox button { font: 700 14px/1 var(--display); text-transform: uppercase; letter-spacing: .06em; cursor: pointer;
+    background: var(--ink); color: #fff; border: 0; border-radius: 6px; padding: 7px 10px 6px; }
+  .copybox button.done { background: var(--wood-deep); }
   @media (max-width: 760px) {
     .press-head { grid-template-columns: 1fr; gap: 18px; padding-top: 36px; }
     .press-head img { width: 84px; height: 84px; border-radius: 19px; }
@@ -94,7 +104,7 @@
 <div class="sheet">
 <header class="topline">
   <a class="brand" href="../"><img src="../img/icon-64.png" alt=""><b>StepHaven</b></a>
-  <nav><a href="../journal/" class="hide-sm">Journal</a><a href="./" aria-current="page">Press</a><a class="get" href="https://apps.apple.com/us/app/stephaven-cozy-town-builder/id6817135263">Get the app</a></nav>
+  <nav><a href="../journal/" class="hide-sm">Journal</a><a href="./" aria-current="page">Press</a><a class="get" href="https://apps.apple.com/app/apple-store/id6817135263?pt=127985050&amp;ct=press&amp;mt=8">Get the app</a></nav>
 </header>
 <main class="press">
 
@@ -108,6 +118,7 @@
 <ul class="jump">
   <li><a href="#facts">Facts</a></li>
   <li><a href="#about">About</a></li>
+  <li><a href="#copy">Descriptions</a></li>
   <li><a href="#video">Video</a></li>
   <li><a href="#screenshots">Screenshots</a></li>
   <li><a href="#art">Art</a></li>
@@ -119,17 +130,20 @@
   <div class="key">
     <table>
       <tr><td>Name</td><td>StepHaven (one word, capital S and H)</td></tr>
-      <tr><td>Developer</td><td>Brody Richmond</td></tr>
-      <tr><td>Release</td><td>October 2026</td></tr>
+      <tr><td>Developer</td><td>Brody Richmond, a solo indie developer in the United States</td></tr>
+      <tr><td>Release</td><td>October 27, 2026 (version 1.0.1 on October 29)</td></tr>
       <tr><td>Platform</td><td>iPhone, iOS 26.5 or later</td></tr>
       <tr><td>Genre</td><td>Cozy town builder, step counter</td></tr>
       <tr><td>Price</td><td>Free to play. Optional StepHaven+ membership and item packs. Points can't be bought; they're only earned by walking.</td></tr>
       <tr><td>Ads</td><td>None</td></tr>
+      <tr><td>Accessibility</td><td>Wheelchair pushes from Apple Watch count like steps. Follows iOS settings for Reduce Motion, Reduce Transparency, Increase Contrast and Differentiate Without Color.</td></tr>
       <tr><td>Languages</td><td>English, German, Spanish, French, Dutch, Portuguese, Japanese, Korean, Traditional Chinese</td></tr>
-      <tr><td>App Store</td><td><a href="https://apps.apple.com/us/app/stephaven-cozy-town-builder/id6817135263">apps.apple.com/app/id6817135263</a></td></tr>
+      <tr><td>Press contact</td><td><a href="mailto:northlaneapps@gmail.com">northlaneapps@gmail.com</a></td></tr>
+      <tr><td>Social</td><td><a href="https://x.com/TryStepHaven">X</a> · <a href="https://www.tiktok.com/@stephavenapp">TikTok</a> · <a href="https://www.youtube.com/@StepHavenOfficial">YouTube</a> · <a href="https://www.pinterest.com/stephavengame/">Pinterest</a></td></tr>
+      <tr><td>App Store</td><td><a href="https://apps.apple.com/app/apple-store/id6817135263?pt=127985050&amp;ct=press&amp;mt=8">apps.apple.com/app/id6817135263</a></td></tr>
     </table>
   </div>
-  <p><a class="dl" href="files/stephaven-fact-sheet.pdf">Fact sheet (PDF)</a></p>
+  <p><a class="dl" href="files/stephaven-press-kit.zip" download>Everything in one zip</a><a class="dl quiet" href="files/stephaven-fact-sheet.pdf">Fact sheet (PDF)</a></p>
 </section>
 
 <section id="about">
@@ -142,10 +156,13 @@
     <li>Over 500 things to build, including more than 40 kinds of tree</li>
     <li>A Workshop for designing your own houses, cottages and shops</li>
     <li>Villagers who move in, wander, chat and visit each other</li>
-    <li>The real time of day and real seasons: dawn mist, lit windows at night, snow in winter</li>
+    <li>The real time of day and real seasons: dawn mist, lit windows at night, foggy evenings, snow in winter</li>
+    <li>A travelling fair that arrives on every real full moon, worked out on the phone from the moon's actual cycle</li>
+    <li>Visiting merchants with things you can't buy anywhere else, and a daily present by the town flag</li>
     <li>Shared havens: build one town with friends over iCloud</li>
     <li>Wild animals that visit and leave presents</li>
     <li>Wheelchair pushes count the same as steps</li>
+    <li>Ember: light it before a bike ride, swim or other workout, and the exercise earns points too</li>
     <li>Home Screen and Lock Screen widgets, and a Live Activity for workouts</li>
     <li>Every building, tree and animal is drawn in code</li>
   </ul>
@@ -157,6 +174,26 @@
 
   <h3>Privacy</h3>
   <p>Step data never leaves the phone. There are no accounts and no ads. Read the <a href="https://bmrich12.github.io/stephaven-privacy/">privacy policy</a>.</p>
+</section>
+
+<section id="copy">
+  <h2>Descriptions</h2>
+  <p>Ready to paste, in three lengths. Use them as they are or cut them down.</p>
+  <div class="copybox"><div class="label">One line<button type="button">Copy</button></div>
+    <p>StepHaven is a cozy town builder for iPhone where the only currency is the steps you walk.</p></div>
+  <div class="copybox"><div class="label">Short, about 60 words<button type="button">Copy</button></div>
+    <p>StepHaven is a cozy isometric town builder for iPhone that you play by walking. Steps from Apple Health become points you spend on cottages, gardens, canals, trains and lanterns. Points can't be bought and there are no ads, so every house in your town is one you walked for. Wheelchair pushes count too, and friends can build one town together.</p></div>
+  <div class="copybox"><div class="label">Long, about 150 words<button type="button">Copy</button></div>
+    <p>StepHaven turns your daily walk into a cozy little town. Your iPhone already counts your steps; StepHaven reads them from Apple Health and turns them into points you spend on cottages, flower beds, rivers, bridges, trains and more than 500 other things to build. A short stroll buys a garden; a long weekend hike might buy a lighthouse. There are no ads and points can never be bought. The town keeps real time: lamps come on at dusk, fog rolls in on some nights, snow falls in winter, and a travelling fair arrives on every real full moon. Villagers move in, wander and chat, wild animals visit, and a Workshop lets you design your own houses. Friends can share one town, each building with their own steps. Wheelchair pushes and workouts count too. Every building, tree and animal was drawn in code by one developer, and step data never leaves the phone.</p></div>
+
+  <h3>Angles for a story</h3>
+  <ul class="plain">
+    <li><b>One developer, all of it drawn in code.</b> The town's art is not image files: every cottage, tree and villager is drawn by the game's own code.</li>
+    <li><b>Walking is the only way to earn.</b> No ads and no way to buy points. The paid parts (a membership and item packs) add variety, never steps.</li>
+    <li><b>Built for more than walkers.</b> Wheelchair pushes count like steps, workouts can earn through Ember, and the game follows iOS accessibility settings.</li>
+    <li><b>Real time, real sky.</b> Time of day, seasons, weather and the full-moon fair all follow the real clock and calendar, worked out on the phone.</li>
+    <li><b>Private by design.</b> Step and workout data is read on the phone and never sent anywhere. No accounts.</li>
+  </ul>
 </section>
 
 <section id="video">
@@ -191,21 +228,24 @@
     <a href="files/village-afternoon.jpg"><img src="files/village-afternoon-thumb.jpg" alt="A village of cottages beside a stream" loading="lazy"><span>A village in the afternoon</span></a>
     <a href="files/cottage-garden.jpg"><img src="files/cottage-garden-thumb.jpg" alt="Thatched cottages and vegetable gardens" loading="lazy"><span>Cottage gardens</span></a>
     <a href="files/spring-canal-town.jpg"><img src="files/spring-canal-town-thumb.jpg" alt="Townhouses along a canal with cherry blossom" loading="lazy"><span>A canal town in spring</span></a>
-    <a href="files/halloween-town.jpg"><img src="files/halloween-town-thumb.jpg" alt="A Halloween town of purple houses and pumpkins" loading="lazy"><span>Halloween Town</span></a>
+    <a href="files/autumn-dusk.jpg"><img src="files/autumn-dusk-thumb.jpg" alt="A village at dusk in autumn with lamplit windows" loading="lazy"><span>Autumn at dusk (1600 px)</span></a>
+    <a href="files/winter-village.jpg"><img src="files/winter-village-thumb.jpg" alt="The same village in winter with snow on the roofs" loading="lazy"><span>The same village in winter (1600 px)</span></a>
+    <a href="files/halloween-town.jpg"><img src="files/halloween-town-thumb.jpg" alt="A Halloween town of purple houses and pumpkins" loading="lazy"><span>Halloween Town (October 2026 event)</span></a>
     <a href="files/gnome-garden.jpg"><img src="files/gnome-garden-thumb.jpg" alt="A garden square around a giant gnome statue" loading="lazy"><span>A gnome garden</span></a>
     <a href="files/pioneer-gnome.png"><img src="files/pioneer-gnome-thumb.png" alt="The Pioneer Gnome statue" loading="lazy"><span>The Pioneer Gnome (transparent PNG)</span></a>
   </div>
   <h3>Icon and events</h3>
   <a class="dl quiet" href="files/stephaven-icon-1024.png">App icon, 1024 px</a>
   <a class="dl quiet" href="files/event-pioneer-card.jpg">Pioneer Gnome event art</a>
-  <a class="dl quiet" href="files/event-halloween-card.jpg">Halloween Town event art</a>
+  <a class="dl quiet" href="files/event-halloween-card.jpg">Halloween Town event art (October 2026)</a>
 </section>
 
 <section id="contact">
   <h2>Contact</h2>
   <div class="contact">
     <p style="margin:0">Brody Richmond<br>
-    For press, review codes or interviews: <a href="https://bmrich12.github.io/stephaven-privacy/support/">bmrich12.github.io/stephaven-privacy/support</a></p>
+    For press, StepHaven+ review codes or interviews: <a href="mailto:northlaneapps@gmail.com">northlaneapps@gmail.com</a><br>
+    Players with a question: <a href="https://bmrich12.github.io/stephaven-privacy/support/">the support page</a></p>
   </div>
 </section>
 
@@ -213,9 +253,18 @@
 <footer class="imprint">
   <div class="wrap">
     <span class="scale"><span class="scalebar" aria-hidden="true"><i></i><i></i><i></i><i></i></span>© 2026 StepHaven</span>
-    <nav aria-label="Site"><a href="../">StepHaven</a><a href="../changelog/">What's New</a><a href="../journal/">Journal</a><a href="https://www.tiktok.com/@stephavenapp" rel="me">TikTok</a><a href="https://www.youtube.com/@StepHavenOfficial" rel="me">YouTube</a><a href="https://bmrich12.github.io/stephaven-privacy/">Privacy</a><a href="https://bmrich12.github.io/stephaven-privacy/support/">Support</a></nav>
+    <nav aria-label="Site"><a href="../">StepHaven</a><a href="../changelog/">What's New</a><a href="../journal/">Journal</a><a href="https://www.tiktok.com/@stephavenapp" rel="me">TikTok</a><a href="https://www.youtube.com/@StepHavenOfficial" rel="me">YouTube</a><a href="https://x.com/TryStepHaven" rel="me">X</a><a href="https://www.pinterest.com/stephavengame/" rel="me">Pinterest</a><a href="https://bmrich12.github.io/stephaven-privacy/">Privacy</a><a href="https://bmrich12.github.io/stephaven-privacy/support/">Support</a></nav>
   </div>
 </footer>
 </div>
+<script>
+document.querySelectorAll('.copybox button').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var text = b.closest('.copybox').querySelector('p').innerText;
+    navigator.clipboard.writeText(text).then(function () { b.textContent = 'Copied'; b.classList.add('done');
+      setTimeout(function () { b.textContent = 'Copy'; b.classList.remove('done'); }, 1600); });
+  });
+});
+</script>
 </body>
 </html>
