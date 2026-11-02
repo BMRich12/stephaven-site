@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Join a Haven · StepHaven</title>
+<meta name="description" content="A friend invited you to build with them in StepHaven.">
+<meta name="robots" content="noindex">
+<meta name="apple-itunes-app" content="app-id=6817135263">
+<meta name="theme-color" content="#E5EDC6">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="StepHaven">
+<meta property="og:title" content="Come build a haven with me">
+<meta property="og:description" content="A cozy town builder you play by walking. Tap to join my haven.">
+<meta property="og:image" content="https://stephaven.app/img/og/haven.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A StepHaven town beside a canal village.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@TryStepHaven">
+<meta name="twitter:image" content="https://stephaven.app/img/og/haven.jpg">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/img/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="../img/icon-180.png">
+<!-- A shared haven's invite link (easier invites, step 2). With the app
+     installed the link opens it directly (Associated Domains: /join/* in
+     .well-known/apple-app-site-association) and this page doesn't show.
+     Otherwise it offers the App Store and shows the code big, because iOS
+     doesn't carry a link through an install: after installing, the friend
+     opens Join with Code (or taps "Open in StepHaven" here) and types it.
+     It shows no name or picture of the haven. -->
+<style>
+  @font-face { font-family: 'Barlow Condensed'; font-weight: 800; font-display: swap; src: url(../fonts/BarlowCondensed-800.woff2) format('woff2'); }
+  @font-face { font-family: 'Barlow'; font-weight: 500; font-display: swap; src: url(../fonts/Barlow-500.woff2) format('woff2'); }
+  @font-face { font-family: 'Barlow'; font-weight: 600; font-display: swap; src: url(../fonts/Barlow-600.woff2) format('woff2'); }
+  :root {
+    color-scheme: light;
+    --field: #E7EECB; --margin: #F6F8EA; --ink: #1B2A1D; --ink-soft: #3B4E3D;
+    --path: #D33F27; --path-deep: #A82E1A; --sign: #285E33;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; background: var(--field); color: var(--ink); }
+  body {
+    font-family: Barlow, system-ui, sans-serif; font-weight: 500;
+    display: grid; place-items: center; min-height: 100vh; padding: 24px 16px;
+    background-image:
+      linear-gradient(rgba(47,111,163,.10) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(47,111,163,.10) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  main {
+    width: 100%; max-width: 420px; background: var(--margin); border-radius: 22px;
+    padding: 32px 24px 26px; text-align: center;
+    box-shadow: 0 1px 0 rgba(27,42,29,.08), 0 18px 40px -18px rgba(27,42,29,.35);
+  }
+  img.icon { width: 84px; height: 84px; border-radius: 19px; box-shadow: 0 6px 16px -6px rgba(27,42,29,.4); }
+  h1 {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800;
+    font-size: 40px; line-height: .95; margin: 18px 0 10px; letter-spacing: .005em;
+  }
+  p { color: var(--ink-soft); font-size: 17px; line-height: 1.45; margin: 0 0 18px; }
+  .code {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800;
+    font-size: 46px; letter-spacing: .18em; color: var(--sign);
+    background: rgba(40,94,51,.08); border-radius: 14px; padding: 10px 0 8px 0.18em; margin: 0 0 8px;
+    user-select: all; -webkit-user-select: all;
+  }
+  .codenote { font-size: 14px; margin: 0 0 20px; }
+  .button {
+    display: block; width: 100%; padding: 15px 18px; border-radius: 14px; text-decoration: none;
+    font-weight: 600; font-size: 18px;
+  }
+  .store { background: var(--path); color: #fff; }
+  .store:active { background: var(--path-deep); }
+  .open { margin-top: 10px; color: var(--sign); background: rgba(40,94,51,.08); }
+  .small { margin: 18px 0 0; font-size: 13px; color: var(--ink-soft); opacity: .8; }
+  .gone { display: none; }
+</style>
+</head>
+<body>
+<main>
+  <img class="icon" src="../img/icon-180.png" alt="">
+  <h1 id="title">You're invited to a haven</h1>
+  <p id="lede">A friend wants to build a town with you in StepHaven. Get the free app, then join with their code.</p>
+  <div class="code" id="code" aria-label="Join code"></div>
+  <p class="codenote" id="codenote">In StepHaven: tap +, then the gear, then Join with Code.</p>
+  <a class="button store" href="https://apps.apple.com/app/apple-store/id6817135263?pt=127985050&amp;ct=invite&amp;mt=8">Get StepHaven on the App Store</a>
+  <a class="button open" id="open" href="stephaven://">Already have it? Open StepHaven</a>
+  <p class="small">StepHaven is a cozy town builder you play by walking. iPhone only. Your friend lets you in.</p>
+</main>
+<script>
+  (function () {
+    var code = (new URLSearchParams(location.search).get('c') || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+    var valid = /^[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{6}$/.test(code);
+    var open = document.getElementById('open');
+    if (!valid) {
+      document.getElementById('title').textContent = 'This invite looks broken';
+      document.getElementById('lede').textContent = 'Ask your friend to send their invite again.';
+      document.getElementById('code').classList.add('gone');
+      document.getElementById('codenote').classList.add('gone');
+      open.classList.add('gone');
+      return;
+    }
+    document.getElementById('code').textContent = code;
+    // No jump to the app on load (Safari answers an unknown scheme with an
+    // "address is invalid" alert): with the app, iOS opens it from the link.
+    open.href = 'stephaven://join/' + code;
+  })();
+</script>
+</body>
+</html>
