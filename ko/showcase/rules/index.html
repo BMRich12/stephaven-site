@@ -117,7 +117,7 @@ a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-ra
 .dates .note { text-align: center; font-size: 13px; color: var(--muted); margin: 18px 0 0; }
 
 /* The rules in short */
-.short { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin: 40px 0 0; padding: 0; list-style: none; }
+.short { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 40px 0 0; padding: 0; list-style: none; }
 .short li { background: var(--forest-soft); padding: 16px 16px 15px; border-radius: 2px; min-width: 0; }
 .short svg { width: 22px; height: 22px; color: var(--leaf); display: block; margin-bottom: 10px; }
 .short b { display: block; font-family: var(--display); font-weight: 600; font-size: 17px; line-height: 1.25; }
@@ -201,6 +201,7 @@ footer nav { display: flex; flex-wrap: wrap; gap: 8px 20px; }
   .toc { position: static; }
   .toc ol { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 14px; }
   .short { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .short li:last-child { grid-column: 1 / -1; }
 }
 @media (max-width: 620px) {
   .timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 18px; }
@@ -283,10 +284,6 @@ footer nav { display: flex; flex-wrap: wrap; gap: 8px 20px; }
       <b>지원과 참가 모두 무료</b><span>구매도 참가비도 필요 없어요.</span>
     </li>
     <li>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8" transform="rotate(45 12 12)"/></svg>
-      <b>결제해도 우승에 도움이 되지 않아요</b><span>팩과 StepHaven+는 심사에 전혀 반영되지 않아요.</span>
-    </li>
-    <li>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 14.5c3 0 6 1.8 6 5.5"/></svg>
       <b>패스 하나에 작품 하나</b><span>혼자 또는 친구 최대 세 명과 함께 만들 수 있어요.</span>
     </li>
@@ -361,7 +358,7 @@ footer nav { display: flex; flex-wrap: wrap; gap: 8px 20px; }
             <div><b>활기</b><span>정원, 불빛, 물처럼 마을을 북적이게 하는 작은 것들.</span></div>
             <div><b>디테일</b><span>가까이서 본 구석구석의 정성.</span></div>
           </div>
-          <p>Haven에 어떤 아이템을 썼는지는 상관없어요. 팩이나 StepHaven+가 있어도 점수를 더 받지 않아요. 우승작 하나와 소수의 결선 진출자를 뽑아요. 저희의 결정은 최종 결정이에요.</p>
+          <p>우승작 하나와 소수의 결선 진출자를 뽑아요. 저희의 결정은 최종 결정이에요.</p>
         </div>
       </article>
 

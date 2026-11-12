@@ -117,7 +117,7 @@ a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-ra
 .dates .note { text-align: center; font-size: 13px; color: var(--muted); margin: 18px 0 0; }
 
 /* The rules in short */
-.short { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin: 40px 0 0; padding: 0; list-style: none; }
+.short { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 40px 0 0; padding: 0; list-style: none; }
 .short li { background: var(--forest-soft); padding: 16px 16px 15px; border-radius: 2px; min-width: 0; }
 .short svg { width: 22px; height: 22px; color: var(--leaf); display: block; margin-bottom: 10px; }
 .short b { display: block; font-family: var(--display); font-weight: 600; font-size: 17px; line-height: 1.25; }
@@ -201,6 +201,7 @@ footer nav { display: flex; flex-wrap: wrap; gap: 8px 20px; }
   .toc { position: static; }
   .toc ol { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 14px; }
   .short { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .short li:last-child { grid-column: 1 / -1; }
 }
 @media (max-width: 620px) {
   .timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 18px; }
@@ -283,10 +284,6 @@ footer nav { display: flex; flex-wrap: wrap; gap: 8px 20px; }
       <b>Aanmelden en meedoen zijn gratis</b><span>Geen aankoop en geen kosten.</span>
     </li>
     <li>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8" transform="rotate(45 12 12)"/></svg>
-      <b>Kopen helpt je niet winnen</b><span>Pakketten en StepHaven+ tellen niet mee bij de beoordeling.</span>
-    </li>
-    <li>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 14.5c3 0 6 1.8 6 5.5"/></svg>
       <b>Eén inzending per pas</b><span>Alleen gebouwd, of met maximaal drie vrienden.</span>
     </li>
@@ -361,7 +358,7 @@ footer nav { display: flex; flex-wrap: wrap; gap: 8px 20px; }
             <div><b>Levendigheid</b><span>Tuinen, licht, water, de kleine dingen die hem bruisend maken.</span></div>
             <div><b>Detail</b><span>Zorg in de hoekjes, van dichtbij.</span></div>
           </div>
-          <p>Welke voorwerpen een Haven gebruikt, maakt niet uit: pakketten of StepHaven+ bezitten levert niets op. We kiezen één winnaar en een klein aantal finalisten. Onze beslissingen zijn definitief.</p>
+          <p>We kiezen één winnaar en een klein aantal finalisten. Onze beslissingen zijn definitief.</p>
         </div>
       </article>
 
