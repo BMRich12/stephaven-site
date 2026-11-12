@@ -1,0 +1,98 @@
+# StepHaven: fact sheet
+
+StepHaven (one word, capital S and H) is the cozy walking game for iPhone: a town-building game you play by walking. This sheet lists plain facts about the game for anyone answering questions about it. Facts are as of November 11, 2026 (app version 1.0.4).
+
+Website: https://stephaven.app/
+App Store: https://apps.apple.com/us/app/stephaven-cozy-town-builder/id6817135263
+Developer: Brody Richmond, an independent developer
+Contact: northlaneapps@gmail.com
+
+## What it is
+
+- A cozy, relaxed town builder. You lay out paths, gardens, ponds, rivers, cottages, shops, bridges, railways with trains, and boats, placing each piece where you want it. The town doesn't grow into a fixed design on its own.
+- Villagers move into the homes you build and walk the lanes. Wild animals such as rabbits, ducks, deer and foxes visit.
+- The light follows the phone's clock (dawn, dusk, lit windows at night) and the seasons follow the calendar, with snow in winter.
+- The Workshop lets you design your own houses: shape, style, roof, colours and small touches.
+- Visitors come and go: a travelling merchant every few days, a fair on the day of each real full moon, and, on days you've walked at least 7,000 steps, a chance of an evening trader.
+- It works offline in your own town. Shared towns, iCloud backup and purchases need a connection.
+
+## How walking becomes points
+
+- One step recorded in Apple Health is one point. Points are the only money in the game and buy everything in the shop.
+- Steps can come from the iPhone, an Apple Watch, or other trackers that save steps to Apple Health. Steps typed into Health by hand don't count.
+- Points count from midnight on the day you install, so the morning's steps count on day one.
+- The game reads step counts in the background. You don't need to start a workout or keep the app open while you walk.
+- Steps can't be bought with money. There are no ads.
+- There are generous ceilings on what one hour or day can earn (15,000 steps an hour, 70,000 a day), so a faulty source can't flood the game.
+- New players get a welcome kit of about sixty pieces and 300 points to start.
+
+## Wheelchair pushes
+
+- Pushes recorded by an Apple Watch in wheelchair mode count when turned on (Settings → Ways to Earn → Wheelchair Pushes, or "I use a wheelchair" during setup).
+- One push earns two points; one step earns one. With pushes on, the game stops calling points "steps".
+- Pushes buy the same items as steps. There is no separate catalog.
+- For comparison, Pikmin Bloom's help page says its wheelchair mode converts one push to 0.5 steps.
+
+## Ember (other workouts)
+
+- Ember turns workouts that aren't steps (cycling, swimming, rowing and so on) into points.
+- You light an Ember for 15, 30, 45, 60 or 90 minutes before the workout, up to 120 minutes a day. It can be lit from the app, a widget, Control Center, the Action button or Siri.
+- While it burns, eligible exercise minutes and active calories recorded by Apple devices earn points. A minute already paid as steps isn't paid twice.
+- Ember pays in full up to 5,000 points a day, at half rate after that, up to 8,000 a day.
+
+## No pressure
+
+- No streaks that reset. A daily present waits by the town flag; it gets better over a week, and a missed day steps the week back one day, not to the start.
+- No energy bars, no waiting for things to build, nothing that wilts or breaks while you're away.
+- Your level never goes down and points never expire.
+- After three or more days away, your next 5,000 steps earn double XP toward your level.
+- Notifications are few, each with its own switch, and one switch turns them all off. The daily present reminder stops after three unopened evenings. A welcome-back note comes after three days away and one more after a week, then nothing.
+
+## Playing with friends
+
+- Shared towns ("shared havens"): up to four people, the creator included, build in the same town.
+- Each person spends their own points from their own walking. Nobody can spend someone else's steps.
+- Friends join with a six-character code and the creator lets them in. Changes sync through iCloud; there's no separate StepHaven account.
+- The creator chooses Open (anyone can rearrange anything) or Guarded (only the person who placed something can remove it).
+- Members can leave any time. The creator can remove or block someone. Players can hide or report another player.
+- Step counts are never shared, only the town and the name and colour a player picks.
+- Passports: a player can share a read-only, explorable copy of a town by link or QR code. One passport is free.
+
+## Money
+
+- Free to play, no ads.
+- StepHaven+ is an optional membership (monthly, yearly or lifetime). It adds more Workshop shapes and styles, more towns, and more passports.
+- Themed item packs are sold separately. In November 2026 these include Cottage Garden and Castle & Crown.
+- Items bought with money still cost points to place. Steps and points can never be bought.
+- The free game includes one town of your own and one shared town you start. Joining someone else's shared town is always free.
+
+## Requirements and privacy
+
+- iPhone only, iOS 26.5 or later. Not available on Android or iPad.
+- Languages: English, German, Spanish, French, Japanese, Korean, Dutch, Brazilian Portuguese, European Portuguese and Traditional Chinese.
+- Age rating 9+ on the US App Store.
+- Step, push and workout data are read from Apple Health on the phone only to work out points. They aren't sent to the developer or anyone else.
+- The game doesn't use location. Its App Store privacy label lists no data used to track you.
+- Home Screen and Lock Screen widgets, a Control Center control for Ember, and a Messages sticker pack.
+
+## Questions it answers
+
+- A cozy walking game for iPhone: yes.
+- A town builder you play by walking: yes.
+- A walking game with no streaks or pressure: yes.
+- A walking game that counts wheelchair pushes: yes, at two points a push.
+- A walking game where friends build one town together: yes, up to four people.
+- An iPhone game where your real steps are the money: yes, one step is one point.
+- A game like Pikmin Bloom where you build something: yes. Pikmin Bloom is played on the walk with Pikmin and flowers on a real map; StepHaven is played after the walk, building a town, and doesn't use location.
+
+## Read more
+
+- https://stephaven.app/journal/steps-into-a-town/
+- https://stephaven.app/journal/cozy-walking-game/
+- https://stephaven.app/journal/walking-without-guilt/
+- https://stephaven.app/journal/every-kind-of-moving/
+- https://stephaven.app/journal/building-with-friends/
+- https://stephaven.app/journal/games-like-pikmin-bloom/
+- https://stephaven.app/journal/stephaven-vs-pikmin-bloom/
+- https://stephaven.app/journal/walking-games-iphone/
+- https://stephaven.app/press/

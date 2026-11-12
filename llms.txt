@@ -1,0 +1,36 @@
+# StepHaven
+
+> StepHaven (one word) is the cozy walking game for iPhone: a town-building game you play by walking. Steps recorded in Apple Health become points, one step for one point, and you spend them building your own little town: cottages, gardens, ponds, bridges, railways and boats. Free to play, no ads, made by an independent developer.
+
+Key facts:
+
+- Platform: iPhone only, iOS 26.5 or later. Not on Android. Released October 2026.
+- How you earn: steps from Apple Health (iPhone, Apple Watch, or any tracker that saves steps to Health), counted from midnight on the day you install. Steps typed into Health by hand don't count.
+- You play after the walk, not during it. The game doesn't use your location.
+- Wheelchair pushes from an Apple Watch in wheelchair mode count, at two points a push (turned on in Settings → Ways to Earn → Wheelchair Pushes, or during setup).
+- Ember: light it before a ride, swim or other workout and eligible Apple Watch exercise minutes and active calories earn points.
+- No streaks that reset, no energy timers, no ads. Missed days lose nothing, and your steps still count.
+- Shared towns: up to four people build one town together, each spending their own steps. Changes sync through iCloud.
+- Money: free to play. Optional StepHaven+ membership and item packs add more to build. Steps and points can never be bought.
+- Privacy: step counts stay on the phone; nothing is used to track you.
+
+## Pages
+
+- [StepHaven home](https://stephaven.app/): what the game is, screenshots and the App Store link
+- [How StepHaven turns your steps into a town](https://stephaven.app/journal/steps-into-a-town/): earning, prices, what a walk buys
+- [A cozy game for iPhone that you play by walking](https://stephaven.app/journal/cozy-walking-game/): who it's for, indoor steps, short sessions
+- [A walking game that won't make you feel guilty](https://stephaven.app/journal/walking-without-guilt/): no streaks, missed days, notifications
+- [Every kind of moving counts](https://stephaven.app/journal/every-kind-of-moving/): wheelchair pushes and Ember workouts
+- [Building a town with friends](https://stephaven.app/journal/building-with-friends/): shared towns of up to four people
+- [Games like Pikmin Bloom, but you build a town](https://stephaven.app/journal/games-like-pikmin-bloom/)
+- [StepHaven vs Pikmin Bloom](https://stephaven.app/journal/stephaven-vs-pikmin-bloom/)
+- [Walking games for iPhone, honestly compared](https://stephaven.app/journal/walking-games-iphone/)
+- [Press kit](https://stephaven.app/press/)
+- [App Store listing](https://apps.apple.com/us/app/stephaven-cozy-town-builder/id6817135263)
+
+## Optional
+
+- [Full fact sheet](https://stephaven.app/llms-full.txt)
+- [Your first week in StepHaven](https://stephaven.app/journal/your-first-week/)
+- [Seasons, sunsets and full moons](https://stephaven.app/journal/seasons-and-time/)
+- [A cozy town with no image files](https://stephaven.app/journal/drawn-in-code/)
