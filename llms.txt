@@ -17,6 +17,7 @@ Key facts:
 ## Pages
 
 - [StepHaven home](https://stephaven.app/): what the game is, screenshots and the App Store link
+- [Build planner](https://stephaven.app/build-planner/): three projects with itemized prices from the released game
 - [How StepHaven turns your steps into a town](https://stephaven.app/journal/steps-into-a-town/): earning, prices, what a walk buys
 - [A cozy game for iPhone that you play by walking](https://stephaven.app/journal/cozy-walking-game/): who it's for, indoor steps, short sessions
 - [A walking game that won't make you feel guilty](https://stephaven.app/journal/walking-without-guilt/): no streaks, missed days, notifications
@@ -26,7 +27,7 @@ Key facts:
 - [StepHaven vs Pikmin Bloom](https://stephaven.app/journal/stephaven-vs-pikmin-bloom/)
 - [Walking games for iPhone, honestly compared](https://stephaven.app/journal/walking-games-iphone/)
 - [Press kit](https://stephaven.app/press/)
-- [App Store listing](https://apps.apple.com/us/app/stephaven-cozy-town-builder/id6817135263)
+- [App Store listing](https://apps.apple.com/us/app/stephaven-cozy-walking-game/id6817135263)
 
 ## Optional
 

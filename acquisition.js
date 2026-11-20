@@ -4,8 +4,8 @@
 (function () {
   'use strict';
   var key = 'stephaven.website.source.v1';
-  var allowed = ['ai_chatgpt', 'ai_gemini', 'web_google', 'web_bing', 'producthunt'];
-  var generic = ['website', 'guide_cozy', 'guide_friends', 'guide_compare', 'guide_movement'];
+  var allowed = ['ai_chatgpt', 'ai_gemini', 'web_google', 'web_bing', 'producthunt', 'web_bluesky'];
+  var generic = ['website', 'guide_cozy', 'guide_friends', 'guide_compare', 'guide_movement', 'build_planner'];
   var q = new URLSearchParams(location.search);
   var ref = null;
   try { ref = new URL(document.referrer); } catch (e) {}
@@ -14,12 +14,14 @@
   var tagged = (q.get('utm_source') || '').toLowerCase();
   if (tagged === 'chatgpt.com' || tagged === 'chatgpt') source = 'ai_chatgpt';
   else if (tagged === 'gemini.google.com' || tagged === 'gemini') source = 'ai_gemini';
+  else if (tagged === 'bluesky') source = 'web_bluesky';
   else if (q.get('ref') === 'producthunt' || tagged === 'producthunt') source = 'producthunt';
   if (!source && ref) {
     if (hostIs(ref.hostname, 'chatgpt.com') || ref.hostname === 'chat.openai.com') source = 'ai_chatgpt';
     else if (ref.hostname === 'gemini.google.com') source = 'ai_gemini';
     else if (hostIs(ref.hostname, 'google.com')) source = 'web_google';
     else if (hostIs(ref.hostname, 'bing.com')) source = 'web_bing';
+    else if (ref.hostname === 'bsky.app') source = 'web_bluesky';
     else if (hostIs(ref.hostname, 'producthunt.com')) source = 'producthunt';
   }
   var external = ref && ref.origin !== location.origin;

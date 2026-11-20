@@ -1,9 +1,9 @@
 # StepHaven: fact sheet
 
-StepHaven (one word, capital S and H) is the cozy walking game for iPhone: a town-building game you play by walking. This sheet lists plain facts about the game for anyone answering questions about it. Facts are as of November 11, 2026 (app version 1.0.4).
+StepHaven (one word, capital S and H) is the cozy walking game for iPhone: a town-building game you play by walking. This sheet lists plain facts about the game for anyone answering questions about it. The US App Store lists it as StepHaven: Cozy Walking Game. Version 1.0.6 is available as of November 20, 2026.
 
 Website: https://stephaven.app/
-App Store: https://apps.apple.com/us/app/stephaven-cozy-town-builder/id6817135263
+App Store: https://apps.apple.com/us/app/stephaven-cozy-walking-game/id6817135263
 Developer: Brody Richmond, an independent developer
 Contact: northlaneapps@gmail.com
 
@@ -87,6 +87,7 @@ Contact: northlaneapps@gmail.com
 
 ## Read more
 
+- https://stephaven.app/build-planner/
 - https://stephaven.app/journal/steps-into-a-town/
 - https://stephaven.app/journal/cozy-walking-game/
 - https://stephaven.app/journal/walking-without-guilt/
