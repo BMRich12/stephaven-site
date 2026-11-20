@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>StepHaven Journal</title>
+    <link>https://stephaven.app/journal/</link>
+    <description>Walking projects, player guides and notes from the making of StepHaven.</description>
+    <language>en</language>
+    <atom:link href="https://stephaven.app/journal/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>StepHaven Build Planner</title>
+      <link>https://stephaven.app/build-planner/</link>
+      <description>Plan a lamplit bench, a gnome garden or a dog yard in StepHaven. See what each build costs in steps, check off the pieces you own and share a plan with a friend.</description>
+      <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://stephaven.app/build-planner/</guid>
+    </item>
+    <item>
+      <title>A walking game that won't make you feel guilty</title>
+      <link>https://stephaven.app/journal/walking-without-guilt/</link>
+      <description>StepHaven has no streaks to lose, no energy timers and no ads. Miss a few days and every step you walked still counts. Here's how it stays gentle.</description>
+      <pubDate>Wed, 11 Nov 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://stephaven.app/journal/walking-without-guilt/</guid>
+    </item>
+    <item>
+      <title>StepHaven vs Pikmin Bloom: which walking game suits you?</title>
+      <link>https://stephaven.app/journal/stephaven-vs-pikmin-bloom/</link>
+      <description>Both turn your steps into a gentle game. Pikmin Bloom is played on the walk, with Pikmin and flowers on a real map. StepHaven is played after it, building your own town. An honest side-by-side.</description>
+      <pubDate>Wed, 11 Nov 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://stephaven.app/journal/stephaven-vs-pikmin-bloom/</guid>
+    </item>
+    <item>
+      <title>Games like Pikmin Bloom for iPhone, but you build a town</title>
+      <link>https://stephaven.app/journal/games-like-pikmin-bloom/</link>
+      <description>Like Pikmin Bloom's gentle walking but want something to build? StepHaven turns your steps into a cozy town. Plus Pokémon GO, Pixel Islands, MistyWay, Walkr and Fogbreaker, sorted by what you like about Pikmin Bloom.</description>
+      <pubDate>Wed, 11 Nov 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://stephaven.app/journal/games-like-pikmin-bloom/</guid>
+    </item>
+    <item>
+      <title>A cozy game for iPhone that you play by walking</title>
+      <link>https://stephaven.app/journal/cozy-walking-game/</link>
+      <description>Looking for a cozy game that also gets you outside? StepHaven is a gentle town builder for iPhone where your steps become cottages, gardens, trains and boats. No ads, no timers.</description>
+      <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://stephaven.app/journal/cozy-walking-game/</guid>
+    </item>
+    <item>
+      <title>Your first week in StepHaven: a beginner's guide</title>
+      <link>https://stephaven.app/journal/your-first-week/</link>
+      <description>How your steps become points, what to build first, the daily present, the visitors who come to town and the Workshop.</description>
+      <pubDate>Sat, 31 Oct 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://stephaven.app/journal/your-first-week/</guid>
+    </item>
+    <item>
+      <title>Walking games for iPhone, honestly compared</title>
+      <link>https://stephaven.app/journal/walking-games-iphone/</link>
+      <description>Pikmin Bloom, Pokémon GO, Walkr, Zombies, Run! and five more iPhone walking games: what each is, who it suits, how it counts your steps and what it costs.</description>
+      <pubDate>Sat, 31 Oct 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://stephaven.app/journal/walking-games-iphone/</guid>
+    </item>
+    <item>
+      <title>Seasons, sunsets and full moons in StepHaven</title>
+      <link>https://stephaven.app/journal/seasons-and-time/</link>
+      <description>How StepHaven follows your phone's clock and the real calendar: times of day, weather, seasons and the full-moon fair.</description>
+      <pubDate>Sat, 31 Oct 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://stephaven.app/journal/seasons-and-time/</guid>
+    </item>
+    <item>
+      <title>A cozy town with no image files</title>
+      <link>https://stephaven.app/journal/drawn-in-code/</link>
+      <description>How StepHaven draws a whole town in Core Graphics code, generates its world from a seed, and syncs shared towns over CloudKit with no server.</description>
+      <pubDate>Sat, 31 Oct 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://stephaven.app/journal/drawn-in-code/</guid>
+    </item>
+    <item>
+      <title>How StepHaven turns your steps into a town</title>
+      <link>https://stephaven.app/journal/steps-into-a-town/</link>
+      <description>How steps become points in StepHaven, what they buy, and why steps can never be bought.</description>
+      <pubDate>Fri, 16 Oct 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://stephaven.app/journal/steps-into-a-town/</guid>
+    </item>
+    <item>
+      <title>Every kind of moving counts: wheelchair pushes and Ember workouts</title>
+      <link>https://stephaven.app/journal/every-kind-of-moving/</link>
+      <description>Wheelchair pushes count like steps in StepHaven, and Ember turns workouts into points for your town.</description>
+      <pubDate>Fri, 16 Oct 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://stephaven.app/journal/every-kind-of-moving/</guid>
+    </item>
+    <item>
+      <title>A walking game where friends build one town together</title>
+      <link>https://stephaven.app/journal/building-with-friends/</link>
+      <description>How shared towns work in StepHaven: invites, who can change what, and what stays your own.</description>
+      <pubDate>Fri, 16 Oct 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://stephaven.app/journal/building-with-friends/</guid>
+    </item>
+  </channel>
+</rss>

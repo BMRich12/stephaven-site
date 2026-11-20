@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>StepHaven development and design</title>
+    <link>https://stephaven.app/journal/</link>
+    <description>How an indie iPhone town builder handles drawing, time and movement.</description>
+    <language>en</language>
+    <atom:link href="https://stephaven.app/journal/development.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Seasons, sunsets and full moons in StepHaven</title>
+      <link>https://stephaven.app/journal/seasons-and-time/</link>
+      <description>How StepHaven follows your phone's clock and the real calendar: times of day, weather, seasons and the full-moon fair.</description>
+      <pubDate>Sat, 31 Oct 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://stephaven.app/journal/seasons-and-time/</guid>
+    </item>
+    <item>
+      <title>A cozy town with no image files</title>
+      <link>https://stephaven.app/journal/drawn-in-code/</link>
+      <description>How StepHaven draws a whole town in Core Graphics code, generates its world from a seed, and syncs shared towns over CloudKit with no server.</description>
+      <pubDate>Sat, 31 Oct 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://stephaven.app/journal/drawn-in-code/</guid>
+    </item>
+    <item>
+      <title>Every kind of moving counts: wheelchair pushes and Ember workouts</title>
+      <link>https://stephaven.app/journal/every-kind-of-moving/</link>
+      <description>Wheelchair pushes count like steps in StepHaven, and Ember turns workouts into points for your town.</description>
+      <pubDate>Fri, 16 Oct 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://stephaven.app/journal/every-kind-of-moving/</guid>
+    </item>
+  </channel>
+</rss>
