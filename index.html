@@ -325,6 +325,32 @@
     .ph-hello .ph-get { display: inline-flex; min-height: 56px; padding: 8px 22px 8px 16px; }
   }
   @media (prefers-reduced-motion: reduce) { .ph-hello { animation: none; } }
+
+  html:has(#player-survey[open]) { overflow: hidden; }
+  .survey-trigger, .survey-close { font: inherit; color: inherit; cursor: pointer; }
+  .survey-trigger { padding: 0; border: 0; background: transparent; font-weight: 600; }
+  .survey-trigger:hover { color: var(--path-deep); text-decoration: underline; }
+  #player-survey {
+    width: min(34rem, calc(100% - 2rem)); max-height: 84dvh; padding: 0;
+    border: 2px solid var(--ink); border-radius: 12px; background: var(--key);
+    color: var(--ink); overscroll-behavior: contain; overflow-y: auto;
+  }
+  #player-survey::backdrop { background: rgb(27 42 29 / 55%); }
+  .survey-head {
+    position: sticky; top: 0; z-index: 1; display: flex; justify-content: space-between;
+    align-items: center; padding: 12px 24px; background: var(--field); border-bottom: 1px solid var(--ink);
+  }
+  .survey-head h2 { margin: 0; font: 700 1.5rem/1 var(--display); }
+  .survey-close { min-height: 44px; border: 0; background: transparent; text-decoration: underline; }
+  .survey-question { margin: 24px; padding: 0; border: 0; min-width: 0; }
+  .survey-question legend { margin-bottom: 12px; padding: 0; font: 700 2rem/1.08 var(--display); }
+  .survey-choice { display: flex; align-items: center; gap: 12px; min-height: 46px; border-bottom: 1px solid var(--grid); cursor: pointer; }
+  .survey-choice input { accent-color: var(--sign); }
+  .survey-write-in { margin-top: 14px; }
+  .survey-write-in input { display: block; width: 100%; margin-top: 4px; padding: 10px; font: inherit; }
+  @media (max-width: 600px) {
+    #player-survey { width: 100%; max-width: 100%; margin: auto 0 0; border-radius: 16px 16px 0 0; padding-bottom: env(safe-area-inset-bottom); }
+  }
 </style>
 </head>
 <body>
@@ -569,7 +595,7 @@
         <a href="https://stephaven.app/privacy/">Privacy</a>
         <a href="https://bmrich12.github.io/stephaven-privacy/support/">Support</a>
         <a href="mailto:northlaneapps@gmail.com">Contact</a>
-        <span role="link" aria-disabled="true">Player Survey</span>
+        <button type="button" class="survey-trigger" id="open-survey" aria-haspopup="dialog" aria-controls="player-survey">Player Survey</button>
       </nav>
     </div>
   </footer>
@@ -598,5 +624,42 @@
 <script src="dial.js?v=15" defer></script>
 <script src="map.js?v=13" defer></script>
 <script src="acquisition.js?v=1" defer></script>
+
+<dialog id="player-survey" aria-labelledby="survey-title">
+  <header class="survey-head">
+    <h2 id="survey-title">Player Survey</h2>
+    <form method="dialog"><button class="survey-close" autofocus>Close</button></form>
+  </header>
+  <fieldset class="survey-question">
+    <legend>Where do you hear about us?</legend>
+    <label class="survey-choice"><input type="radio" name="discovery" value="A friend or family member"> A friend or family member</label>
+    <label class="survey-choice"><input type="radio" name="discovery" value="The App Store"> The App Store</label>
+    <label class="survey-choice"><input type="radio" name="discovery" value="TikTok"> TikTok</label>
+    <label class="survey-choice"><input type="radio" name="discovery" value="Instagram"> Instagram</label>
+    <label class="survey-choice"><input type="radio" name="discovery" value="YouTube"> YouTube</label>
+    <label class="survey-choice"><input type="radio" name="discovery" value="Reddit"> Reddit</label>
+    <label class="survey-choice"><input type="radio" name="discovery" value="Facebook"> Facebook</label>
+    <label class="survey-choice"><input type="radio" name="discovery" value="Pinterest"> Pinterest</label>
+    <label class="survey-choice"><input type="radio" name="discovery" value="X or Bluesky"> X or Bluesky</label>
+    <label class="survey-choice"><input type="radio" name="discovery" value="A web search"> A web search</label>
+    <label class="survey-choice"><input type="radio" name="discovery" value="A gaming website or newsletter"> A gaming website or newsletter</label>
+    <label class="survey-choice"><input type="radio" name="discovery" value="A walking or fitness community"> A walking or fitness community</label>
+    <label class="survey-choice"><input type="radio" name="discovery" value="Other"> Other</label>
+    <div class="survey-write-in" hidden>
+      <label for="survey-source">Where else did you hear about StepHaven?</label>
+      <input id="survey-source" type="text">
+    </div>
+  </fieldset>
+</dialog>
+<script>
+  (() => {
+    const survey = document.getElementById('player-survey');
+    const writeIn = survey.querySelector('.survey-write-in');
+    document.getElementById('open-survey').addEventListener('click', () => survey.showModal());
+    survey.addEventListener('change', event => {
+      if (event.target.name === 'discovery') writeIn.hidden = event.target.value !== 'Other';
+    });
+  })();
+</script>
 </body>
 </html>
