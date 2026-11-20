@@ -41,6 +41,9 @@ article a { color: var(--path-deep); }
 .figure img { border: 2px solid var(--ink); }
 .figure.phone img { max-width: 280px; margin: 0 auto; border-radius: 24px; transform: rotate(-1.5deg); box-shadow: 0 12px 26px rgba(27,42,29,.18); }
 .figure figcaption { color: var(--ink-soft); font-size: 15px; text-align: center; margin-top: 12px; font-style: italic; }
+.build-comparison { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 16px; margin: 24px 0; }
+.build-comparison .figure { margin: 0; }
+.build-comparison img { width: 100%; height: auto; display: block; }
 table { width: 100%; border-collapse: collapse; margin: 8px 0 26px; font-size: 16.5px; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); }
 th, td { text-align: left; padding: 11px 10px; border-bottom: 1px solid rgba(27,42,29,.18); vertical-align: top; }
 th { font: 700 14px/1.2 var(--display); text-transform: uppercase; letter-spacing: .08em; color: var(--ink-soft); }
