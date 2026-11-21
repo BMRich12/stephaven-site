@@ -31,7 +31,7 @@
 <link rel="apple-touch-icon" href="img/icon-180.png">
 <link rel="preload" href="fonts/BarlowCondensed-800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/Barlow-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="site.css?v=13">
+<link rel="stylesheet" href="site.css?v=14">
 <link rel="preload" as="image" href="img/hero-1600.jpg" imagesrcset="img/hero-900.avif 900w, img/hero-1600.avif 1600w, img/hero-2400.avif 2400w" imagesizes="100vw" type="image/avif" fetchpriority="high">
 <script type="application/ld+json">
 {
@@ -337,16 +337,6 @@
 
   /* ---------- Direction A: the town first, then what's on ---------- */
   .cover.town { overflow: visible; }
-  .topbar { position: relative; z-index: 6; background: var(--margin); border-bottom: 2px solid var(--ink); }
-  .topbar .wrap { display: flex; align-items: center; gap: 10px 26px; flex-wrap: wrap; padding-top: 10px; padding-bottom: 10px; max-width: 1320px; }
-  .topbar .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font: 800 26px/1 var(--display); text-transform: uppercase; letter-spacing: .02em; }
-  .topbar .brand img { width: 34px; height: 34px; border-radius: 9px; }
-  .topbar nav { display: flex; gap: 6px 20px; flex-wrap: wrap; flex: 1; min-width: 0; font: 700 16px/1 var(--display); text-transform: uppercase; letter-spacing: .06em; }
-  .topbar nav a { text-decoration: none; padding: 6px 0; }
-  .topbar nav a:hover { color: var(--path-deep); }
-  .topbar .play { display: inline-flex; align-items: center; gap: 8px; background: var(--ink); color: var(--key); text-decoration: none; border-radius: 10px; padding: 9px 14px; font: 700 15px/1 var(--display); letter-spacing: .06em; text-transform: uppercase; }
-  .topbar .play svg { width: 13px; height: 16px; fill: currentColor; }
-  .topbar .play:hover { background: var(--wood-deep); color: #fff; }
 
   .town-pic { position: relative; overflow: hidden; height: clamp(420px, 50vw, 660px); background: #7EA94F; }
   .town-pic img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; max-width: none; }
@@ -411,23 +401,7 @@
     .week, .folk { grid-template-columns: 1fr; }
     .week > div, .folk > div { border-right: 0; border-bottom: 1.5px dashed rgba(27,42,29,.35); }
     .week > div:last-child, .folk > div:last-child { border-bottom: 0; }
-    .topbar .wrap { gap: 8px 12px; }
-    .topbar .brand { font-size: 23px; margin-right: auto; }
-    .topbar .long { display: none; }
-    .topbar nav { order: 3; flex-basis: 100%; flex-wrap: nowrap; overflow-x: auto; gap: 18px; font-size: 15px; scrollbar-width: none; }
-    .topbar nav a { white-space: nowrap; }
-  }
-  .site-foot .wrap { display: grid; grid-template-columns: minmax(0, 1.6fr) repeat(4, minmax(0, 1fr)); gap: 28px 32px; align-items: start; max-width: 1320px; }
-  .site-foot nav { display: flex; flex-direction: column; gap: 8px; }
-  .site-foot nav b { font: 700 14px/1 var(--display); letter-spacing: .1em; text-transform: uppercase; color: var(--grid-ink); margin-bottom: 4px; }
-  .site-foot nav a { font-weight: 500; }
-  .site-foot nav a[aria-current] { font-weight: 700; }
-  .foot-brand { display: grid; gap: 10px; }
-  .foot-brand p { margin: 0; color: var(--ink-soft); font-size: 16px; max-width: 32ch; }
-  .foot-name { display: flex; align-items: center; gap: 10px; font: 800 24px/1 var(--display); text-transform: uppercase; letter-spacing: .02em; }
-  .foot-name img { width: 32px; height: 32px; border-radius: 8px; }
-  .site-foot .scale { font-size: 14px; color: var(--ink-soft); }
-  @media (max-width: 899px) { .site-foot .wrap { grid-template-columns: repeat(2, minmax(0, 1fr)); } .foot-brand { grid-column: 1 / -1; } }
+            }
 </style>
 </head>
 <body>
@@ -482,19 +456,13 @@
   </svg>
 
   <header class="cover town" id="top">
-    <div class="topbar">
-      <div class="wrap">
-        <a class="brand" href="./"><img src="img/icon-64.png" alt="" width="34" height="34">StepHaven</a>
-        <nav aria-label="Main">
-          <a href="#week">This week</a>
-          <a href="changelog/">What's New</a>
-          <a href="journal/">Journal</a>
-          <a href="build-planner/">Build Planner</a>
-          <a href="press/">Press</a>
-        </nav>
-        <a class="play" href="https://apps.apple.com/app/apple-store/id6817135263?pt=127985050&amp;ct=website&amp;mt=8"><svg aria-hidden="true"><use href="#i-apple"/></svg>Play<span class="long"> on iPhone</span></a>
-      </div>
-    </div>
+    <header class="site-top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/img/icon-64.png" alt="" width="34" height="34"><b>StepHaven</b></a>
+    <nav aria-label="Main"><a href="/changelog/">What's New</a><a href="/journal/">Journal</a><a href="/build-planner/">Build Planner</a><a href="/press/">Press</a><a href="/support/">Support</a></nav>
+    <a class="play" href="https://apps.apple.com/app/apple-store/id6817135263?pt=127985050&amp;ct=website&amp;mt=8"><svg viewBox="0 0 24 30" aria-hidden="true"><path d="M19.6 16c0-3 2.5-4.4 2.6-4.5-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.6 1.1-4.6 1.1-1 0-2.4-1.1-4-1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.2 1.5 12.2 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 3.9-1s2.4 1 4 1c1.6 0 2.7-1.5 3.7-3 1.2-1.7 1.6-3.3 1.7-3.4-.1 0-3.2-1.2-3.2-5zM16.6 6.9c.8-1 1.4-2.4 1.2-3.8-1.2.1-2.7.8-3.5 1.8-.8.9-1.5 2.3-1.3 3.7 1.3.1 2.7-.7 3.6-1.7z"/></svg>Play<span class="long"> on iPhone</span></a>
+  </div>
+</header>
     <div class="town-pic">
       <picture><source type="image/avif" srcset="img/hero-900.avif 900w, img/hero-1600.avif 1600w, img/hero-2400.avif 2400w" sizes="100vw"><img src="img/hero-1600.jpg" srcset="img/hero-900.jpg 900w, img/hero-1600.jpg 1600w, img/hero.jpg 2400w" sizes="100vw" alt="A StepHaven town: cottages round a square with a flag, a well and a fountain, lamp posts, gardens, a stream and a koi pond, villagers walking the lanes" width="2400" height="1350" fetchpriority="high"></picture>
       <span class="sheetno" aria-hidden="true"><i></i>Sheet 1 · A town square</span>
@@ -720,44 +688,18 @@
   </main>
 
   <footer class="imprint site-foot">
-    <div class="wrap">
-      <div class="foot-brand">
-        <a class="foot-name" href="./"><img src="img/icon-64.png" alt="" width="32" height="32">StepHaven</a>
-        <p>A cozy walking game for iPhone, made by an independent developer.</p>
-        <span class="scale"><span class="scalebar" aria-hidden="true"><i></i><i></i><i></i><i></i></span>© 2026 StepHaven. Every picture here is from the game.</span>
-      </div>
-      <nav aria-label="The game">
-        <b>The game</b>
-        <a href="changelog/">What's New</a>
-        <a href="journal/">Journal</a>
-        <a href="build-planner/">Build Planner</a>
-        <a href="press/">Press kit</a>
-      </nav>
-      <nav aria-label="Help">
-        <b>Help</b>
-        <a href="/support/">Support</a>
-        <a href="/rules/">Community rules</a>
-        <a href="/privacy/">Privacy</a>
-        <a href="mailto:hello@stephaven.app">hello@stephaven.app</a>
-      </nav>
-      <nav aria-label="Follow StepHaven">
-        <b>Follow</b>
-        <a href="https://www.tiktok.com/@stephavenapp" rel="me">TikTok</a>
-        <a href="https://www.instagram.com/officialstephaven/" rel="me">Instagram</a>
-        <a href="https://www.youtube.com/@StepHavenOfficial" rel="me">YouTube</a>
-        <a href="https://bsky.app/profile/stephaven.app" rel="me">Bluesky</a>
-        <a href="https://x.com/TryStepHaven" rel="me">X</a>
-        <a href="https://www.pinterest.com/stephavengame/" rel="me">Pinterest</a>
-        <a href="https://www.facebook.com/profile.php?id=61595876738776" rel="me">Facebook</a>
-      </nav>
-      <nav aria-label="Languages">
-        <b>Language</b>
-        <a href="./" aria-current="page">English</a>
-        <a href="/ja/" hreflang="ja" lang="ja">日本語</a>
-        <a href="/zh-hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a>
-      </nav>
+  <div class="wrap">
+    <div class="foot-brand">
+      <a class="foot-name" href="/"><img src="/img/icon-64.png" alt="" width="32" height="32">StepHaven</a>
+      <p>A cozy walking game for iPhone, made by an independent developer.</p>
+      <span class="scale"><span class="scalebar" aria-hidden="true"><i></i><i></i><i></i><i></i></span>© 2026 StepHaven. Every picture here is from the game.</span>
     </div>
-  </footer>
+    <nav aria-label="The game"><b>The game</b><a href="/changelog/">What's New</a><a href="/journal/">Journal</a><a href="/build-planner/">Build Planner</a><a href="/press/">Press kit</a></nav>
+    <nav aria-label="Help"><b>Help</b><a href="/support/">Support</a><a href="/rules/">Community rules</a><a href="/privacy/">Privacy</a><a href="mailto:hello@stephaven.app">hello@stephaven.app</a></nav>
+    <nav aria-label="Follow StepHaven"><b>Follow</b><a href="https://www.tiktok.com/@stephavenapp" rel="me">TikTok</a><a href="https://www.instagram.com/officialstephaven/" rel="me">Instagram</a><a href="https://www.youtube.com/@StepHavenOfficial" rel="me">YouTube</a><a href="https://bsky.app/profile/stephaven.app" rel="me">Bluesky</a><a href="https://x.com/TryStepHaven" rel="me">X</a><a href="https://www.pinterest.com/stephavengame/" rel="me">Pinterest</a><a href="https://www.facebook.com/profile.php?id=61595876738776" rel="me">Facebook</a></nav>
+    <nav aria-label="Languages"><b>Language</b><a href="/" aria-current="page">English</a><a href="/ja/" hreflang="ja" lang="ja">日本語</a><a href="/zh-hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></nav>
+  </div>
+</footer>
 </div>
 
 <script>
