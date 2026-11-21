@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url><loc>https://stephaven.app/</loc><lastmod>2026-11-20</lastmod>
     <image:image><image:loc>https://stephaven.app/img/shot-02.jpg</image:loc></image:image>
     <image:image><image:loc>https://stephaven.app/img/shot-03.jpg</image:loc></image:image>
@@ -9,7 +9,10 @@
     <image:image><image:loc>https://stephaven.app/img/shot-07.jpg</image:loc></image:image>
   </url>
   <url><loc>https://stephaven.app/journal/</loc><lastmod>2026-11-20</lastmod></url>
-  <url><loc>https://stephaven.app/journal/your-first-week/</loc><lastmod>2026-11-20</lastmod></url>
+  <url><loc>https://stephaven.app/journal/your-first-week/</loc><lastmod>2026-11-20</lastmod>
+    <image:image><image:loc>https://stephaven.app/journal/img/workshop-cottage-windows.jpg</image:loc></image:image>
+    <image:image><image:loc>https://stephaven.app/journal/img/workshop-cottage-shutters.jpg</image:loc></image:image>
+  </url>
   <url><loc>https://stephaven.app/journal/seasons-and-time/</loc><lastmod>2026-10-31</lastmod></url>
   <url><loc>https://stephaven.app/journal/walking-games-iphone/</loc><lastmod>2026-11-20</lastmod></url>
   <url><loc>https://stephaven.app/journal/drawn-in-code/</loc><lastmod>2026-10-31</lastmod></url>
@@ -38,4 +41,16 @@
   <url><loc>https://stephaven.app/ja/</loc><lastmod>2026-11-20</lastmod></url>
   <url><loc>https://stephaven.app/zh-hant/</loc><lastmod>2026-11-20</lastmod></url>
   <url><loc>https://stephaven.app/ja/futari-de-machizukuri/</loc><lastmod>2026-11-20</lastmod></url>
+  <url>
+    <loc>https://stephaven.app/watch/build-a-town-together/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://stephaven.app/watch/build-a-town-together/town.jpg</video:thumbnail_loc>
+      <video:title>Two walks, one shared town</video:title>
+      <video:description>A 13-second look at shared town building in StepHaven for iPhone. Follow the lanes past cottages and market stalls to the villagers meeting by the canal.</video:description>
+      <video:content_loc>https://stephaven.app/press/files/shared-walks.mp4</video:content_loc>
+      <video:duration>13</video:duration>
+      <video:publication_date>2026-11-20T18:54:56-08:00</video:publication_date>
+    </video:video>
+  </url>
 </urlset>
