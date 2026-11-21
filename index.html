@@ -334,38 +334,6 @@
   }
   @media (prefers-reduced-motion: reduce) { .ph-hello { animation: none; } }
 
-  html:has(#player-survey[open]) { overflow: hidden; }
-  .survey-trigger, .survey-close { font: inherit; color: inherit; cursor: pointer; }
-  .survey-trigger { padding: 0; border: 0; background: transparent; font-weight: 600; }
-  .survey-trigger:hover { color: var(--path-deep); text-decoration: underline; }
-  #player-survey {
-    width: min(34rem, calc(100% - 2rem)); max-height: 84dvh; padding: 0;
-    border: 2px solid var(--ink); border-radius: 12px; background: var(--key);
-    color: var(--ink); overscroll-behavior: contain; overflow-y: auto;
-  }
-  #player-survey::backdrop { background: rgb(27 42 29 / 55%); }
-  .survey-head {
-    position: sticky; top: 0; z-index: 1; display: flex; justify-content: space-between;
-    align-items: center; padding: 12px 24px; background: var(--field); border-bottom: 1px solid var(--ink);
-  }
-  .survey-head h2 { margin: 0; font: 700 1.5rem/1 var(--display); }
-  .survey-close { min-height: 44px; border: 0; background: transparent; text-decoration: underline; }
-  .survey-question { margin: 24px; padding: 0; border: 0; min-width: 0; }
-  .survey-question legend { margin-bottom: 12px; padding: 0; font: 700 2rem/1.08 var(--display); }
-  .survey-choice { display: flex; align-items: center; gap: 12px; min-height: 46px; border-bottom: 1px solid var(--grid); cursor: pointer; }
-  .survey-choice input { accent-color: var(--sign); }
-  .survey-write-in { margin-top: 14px; }
-  .survey-write-in input { display: block; width: 100%; margin-top: 4px; padding: 10px; font: inherit; }
-  .survey-intro { margin: 18px 24px; }
-  .survey-section { border-top: 1px solid var(--grid); }
-  .survey-section summary { padding: 16px 24px; cursor: pointer; font-weight: 600; }
-  .survey-section[open] summary { background: var(--field); }
-  .survey-question > label[for] { display: block; font: 700 2rem/1.08 var(--display); }
-  .survey-question textarea { display: block; width: 100%; margin-top: 12px; padding: 10px; resize: vertical; font: inherit; }
-  .survey-hint { margin-bottom: 4px; color: var(--ink-soft); }
-  @media (max-width: 600px) {
-    #player-survey { width: 100%; max-width: 100%; margin: auto 0 0; border-radius: 16px 16px 0 0; padding-bottom: env(safe-area-inset-bottom); }
-  }
 
   /* ---------- Direction A: the town first, then what's on ---------- */
   .cover.town { overflow: visible; }
@@ -449,6 +417,17 @@
     .topbar nav { order: 3; flex-basis: 100%; flex-wrap: nowrap; overflow-x: auto; gap: 18px; font-size: 15px; scrollbar-width: none; }
     .topbar nav a { white-space: nowrap; }
   }
+  .site-foot .wrap { display: grid; grid-template-columns: minmax(0, 1.6fr) repeat(4, minmax(0, 1fr)); gap: 28px 32px; align-items: start; max-width: 1320px; }
+  .site-foot nav { display: flex; flex-direction: column; gap: 8px; }
+  .site-foot nav b { font: 700 14px/1 var(--display); letter-spacing: .1em; text-transform: uppercase; color: var(--grid-ink); margin-bottom: 4px; }
+  .site-foot nav a { font-weight: 500; }
+  .site-foot nav a[aria-current] { font-weight: 700; }
+  .foot-brand { display: grid; gap: 10px; }
+  .foot-brand p { margin: 0; color: var(--ink-soft); font-size: 16px; max-width: 32ch; }
+  .foot-name { display: flex; align-items: center; gap: 10px; font: 800 24px/1 var(--display); text-transform: uppercase; letter-spacing: .02em; }
+  .foot-name img { width: 32px; height: 32px; border-radius: 8px; }
+  .site-foot .scale { font-size: 14px; color: var(--ink-soft); }
+  @media (max-width: 899px) { .site-foot .wrap { grid-template-columns: repeat(2, minmax(0, 1fr)); } .foot-brand { grid-column: 1 / -1; } }
 </style>
 </head>
 <body>
@@ -740,26 +719,42 @@
     </section>
   </main>
 
-  <footer class="imprint">
+  <footer class="imprint site-foot">
     <div class="wrap">
-      <span class="scale"><span class="scalebar" aria-hidden="true"><i></i><i></i><i></i><i></i></span>© 2026 StepHaven. Every picture here is from the game.</span>
-      <nav aria-label="Site">
+      <div class="foot-brand">
+        <a class="foot-name" href="./"><img src="img/icon-64.png" alt="" width="32" height="32">StepHaven</a>
+        <p>A cozy walking game for iPhone, made by an independent developer.</p>
+        <span class="scale"><span class="scalebar" aria-hidden="true"><i></i><i></i><i></i><i></i></span>© 2026 StepHaven. Every picture here is from the game.</span>
+      </div>
+      <nav aria-label="The game">
+        <b>The game</b>
         <a href="changelog/">What's New</a>
         <a href="journal/">Journal</a>
+        <a href="build-planner/">Build Planner</a>
         <a href="press/">Press kit</a>
-        <a href="/ja/" hreflang="ja" lang="ja">日本語</a>
-        <a href="/zh-hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a>
+      </nav>
+      <nav aria-label="Help">
+        <b>Help</b>
+        <a href="/support/">Support</a>
+        <a href="/rules/">Community rules</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="mailto:hello@stephaven.app">hello@stephaven.app</a>
+      </nav>
+      <nav aria-label="Follow StepHaven">
+        <b>Follow</b>
         <a href="https://www.tiktok.com/@stephavenapp" rel="me">TikTok</a>
+        <a href="https://www.instagram.com/officialstephaven/" rel="me">Instagram</a>
         <a href="https://www.youtube.com/@StepHavenOfficial" rel="me">YouTube</a>
+        <a href="https://bsky.app/profile/stephaven.app" rel="me">Bluesky</a>
         <a href="https://x.com/TryStepHaven" rel="me">X</a>
         <a href="https://www.pinterest.com/stephavengame/" rel="me">Pinterest</a>
-        <a href="https://www.instagram.com/officialstephaven/" rel="me">Instagram</a>
         <a href="https://www.facebook.com/profile.php?id=61595876738776" rel="me">Facebook</a>
-        <a href="https://bsky.app/profile/stephaven.app" rel="me">Bluesky</a>
-        <a href="https://stephaven.app/privacy/">Privacy</a>
-        <a href="https://bmrich12.github.io/stephaven-privacy/support/">Support</a>
-        <a href="mailto:northlaneapps@gmail.com">Contact</a>
-        <button type="button" class="survey-trigger" id="open-survey" aria-haspopup="dialog" aria-controls="player-survey">Player Survey</button>
+      </nav>
+      <nav aria-label="Languages">
+        <b>Language</b>
+        <a href="./" aria-current="page">English</a>
+        <a href="/ja/" hreflang="ja" lang="ja">日本語</a>
+        <a href="/zh-hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a>
       </nav>
     </div>
   </footer>
@@ -829,218 +824,5 @@
 <script src="map.js?v=13" defer></script>
 <script src="acquisition.js?v=2" defer></script>
 
-<dialog id="player-survey" aria-labelledby="survey-title">
-  <header class="survey-head">
-    <h2 id="survey-title">Player Survey</h2>
-    <form method="dialog"><button class="survey-close" autofocus>Close</button></form>
-  </header>
-  <p class="survey-intro">Open any topic that interests you. Every question is optional.</p>
-  <details class="survey-section">
-    <summary>Finding StepHaven</summary>
-    <fieldset class="survey-question">
-      <legend>Where did you first hear about StepHaven?</legend>
-      <label class="survey-choice"><input type="radio" name="discovery" value="A friend or family member"> A friend or family member</label>
-      <label class="survey-choice"><input type="radio" name="discovery" value="The App Store"> The App Store</label>
-      <label class="survey-choice"><input type="radio" name="discovery" value="TikTok"> TikTok</label>
-      <label class="survey-choice"><input type="radio" name="discovery" value="Instagram"> Instagram</label>
-      <label class="survey-choice"><input type="radio" name="discovery" value="YouTube"> YouTube</label>
-      <label class="survey-choice"><input type="radio" name="discovery" value="Reddit"> Reddit</label>
-      <label class="survey-choice"><input type="radio" name="discovery" value="Facebook"> Facebook</label>
-      <label class="survey-choice"><input type="radio" name="discovery" value="Pinterest"> Pinterest</label>
-      <label class="survey-choice"><input type="radio" name="discovery" value="X or Bluesky"> X or Bluesky</label>
-      <label class="survey-choice"><input type="radio" name="discovery" value="A web search"> A web search</label>
-      <label class="survey-choice"><input type="radio" name="discovery" value="A gaming website or newsletter"> A gaming website or newsletter</label>
-      <label class="survey-choice"><input type="radio" name="discovery" value="A walking or fitness community"> A walking or fitness community</label>
-      <label class="survey-choice"><input type="radio" name="discovery" value="I don't remember"> I don't remember</label>
-      <label class="survey-choice"><input type="radio" name="discovery" value="Other"> Other</label>
-      <div class="survey-write-in" hidden>
-        <label for="survey-source">Where else did you hear about StepHaven?</label>
-        <input id="survey-source" type="text">
-      </div>
-    </fieldset>
-    <fieldset class="survey-question">
-      <legend>How long have you been playing StepHaven?</legend>
-      <label class="survey-choice"><input type="radio" name="play-duration" value="Less than a week"> Less than a week</label>
-      <label class="survey-choice"><input type="radio" name="play-duration" value="1 week to less than 1 month"> 1 week to less than 1 month</label>
-      <label class="survey-choice"><input type="radio" name="play-duration" value="1 to less than 3 months"> 1 to less than 3 months</label>
-      <label class="survey-choice"><input type="radio" name="play-duration" value="3 to less than 6 months"> 3 to less than 6 months</label>
-      <label class="survey-choice"><input type="radio" name="play-duration" value="6 months or more"> 6 months or more</label>
-      <label class="survey-choice"><input type="radio" name="play-duration" value="I haven't played yet"> I haven't played yet</label>
-    </fieldset>
-    <fieldset class="survey-question" data-players>
-      <legend>How often do you play StepHaven?</legend>
-      <label class="survey-choice"><input type="radio" name="play-frequency" value="Every day"> Every day</label>
-      <label class="survey-choice"><input type="radio" name="play-frequency" value="Several times a week"> Several times a week</label>
-      <label class="survey-choice"><input type="radio" name="play-frequency" value="Once a week"> Once a week</label>
-      <label class="survey-choice"><input type="radio" name="play-frequency" value="A few times a month"> A few times a month</label>
-      <label class="survey-choice"><input type="radio" name="play-frequency" value="Rarely"> Rarely</label>
-      <label class="survey-choice"><input type="radio" name="play-frequency" value="I haven't played yet"> I haven't played yet</label>
-    </fieldset>
-    <div class="survey-question"><label for="survey-first-interest">What first made you curious enough to take a closer look?</label>
-      <textarea id="survey-first-interest" name="first-interest" rows="3"></textarea>
-    </div>
-  </details>
-  <details class="survey-section" data-players>
-    <summary>Your first session</summary>
-    <fieldset class="survey-question">
-      <legend>What did you try to do first?</legend>
-      <label class="survey-choice"><input type="radio" name="first-action" value="Check my steps"> Check my steps</label>
-      <label class="survey-choice"><input type="radio" name="first-action" value="Place something in my town"> Place something in my town</label>
-      <label class="survey-choice"><input type="radio" name="first-action" value="Explore the map"> Explore the map</label>
-      <label class="survey-choice"><input type="radio" name="first-action" value="Look through the shop"> Look through the shop</label>
-      <label class="survey-choice"><input type="radio" name="first-action" value="Join someone else’s haven"> Join someone else’s haven</label>
-      <label class="survey-choice"><input type="radio" name="first-action" value="Something else"> Something else</label>
-      <label class="survey-choice"><input type="radio" name="first-action" value="I don’t remember"> I don’t remember</label>
-    </fieldset>
-    <fieldset class="survey-question">
-      <legend>Where, if anywhere, did you get stuck that first day?</legend>
-      <label class="survey-choice"><input type="radio" name="first-sticking-point" value="Connecting my steps"> Connecting my steps</label>
-      <label class="survey-choice"><input type="radio" name="first-sticking-point" value="Understanding build points"> Understanding build points</label>
-      <label class="survey-choice"><input type="radio" name="first-sticking-point" value="Finding pieces I owned"> Finding pieces I owned</label>
-      <label class="survey-choice"><input type="radio" name="first-sticking-point" value="Placing or moving a piece"> Placing or moving a piece</label>
-      <label class="survey-choice"><input type="radio" name="first-sticking-point" value="Deciding what to do next"> Deciding what to do next</label>
-      <label class="survey-choice"><input type="radio" name="first-sticking-point" value="Somewhere else"> Somewhere else</label>
-      <label class="survey-choice"><input type="radio" name="first-sticking-point" value="I got through what I wanted to do"> I got through what I wanted to do</label>
-      <label class="survey-choice"><input type="radio" name="first-sticking-point" value="I don’t remember"> I don’t remember</label>
-    </fieldset>
-    <div class="survey-question"><label for="survey-first-expectation">Think back to that moment. What did you expect to happen when you tapped?</label>
-      <textarea id="survey-first-expectation" name="first-expectation" rows="3"></textarea>
-    </div>
-  </details>
-  <details class="survey-section" data-players>
-    <summary>Walking and build points</summary>
-    <fieldset class="survey-question">
-      <legend>When do you usually check what your steps earned?</legend>
-      <label class="survey-choice"><input type="radio" name="check-steps" value="During a walk"> During a walk</label>
-      <label class="survey-choice"><input type="radio" name="check-steps" value="Just after a walk"> Just after a walk</label>
-      <label class="survey-choice"><input type="radio" name="check-steps" value="At the end of the day"> At the end of the day</label>
-      <label class="survey-choice"><input type="radio" name="check-steps" value="After a few days"> After a few days</label>
-      <label class="survey-choice"><input type="radio" name="check-steps" value="Whenever I feel like building"> Whenever I feel like building</label>
-      <label class="survey-choice"><input type="radio" name="check-steps" value="I rarely check"> I rarely check</label>
-    </fieldset>
-    <fieldset class="survey-question">
-      <legend>Has playing changed how much you walk?</legend>
-      <label class="survey-choice"><input type="radio" name="walking-change" value="I walk more"> I walk more</label>
-      <label class="survey-choice"><input type="radio" name="walking-change" value="I walk about the same amount"> I walk about the same amount</label>
-      <label class="survey-choice"><input type="radio" name="walking-change" value="I walk less"> I walk less</label>
-      <label class="survey-choice"><input type="radio" name="walking-change" value="It varies too much to say"> It varies too much to say</label>
-      <label class="survey-choice"><input type="radio" name="walking-change" value="Too early to tell"> Too early to tell</label>
-    </fieldset>
-    <fieldset class="survey-question">
-      <legend>For the last piece you saved for, how did the wait feel?</legend>
-      <label class="survey-choice"><input type="radio" name="saving-pace" value="Much shorter than I wanted"> Much shorter than I wanted</label>
-      <label class="survey-choice"><input type="radio" name="saving-pace" value="A little shorter than I wanted"> A little shorter than I wanted</label>
-      <label class="survey-choice"><input type="radio" name="saving-pace" value="About right"> About right</label>
-      <label class="survey-choice"><input type="radio" name="saving-pace" value="A little longer than I wanted"> A little longer than I wanted</label>
-      <label class="survey-choice"><input type="radio" name="saving-pace" value="Much longer than I wanted"> Much longer than I wanted</label>
-      <label class="survey-choice"><input type="radio" name="saving-pace" value="I haven’t saved for a piece yet"> I haven’t saved for a piece yet</label>
-    </fieldset>
-    <div class="survey-question"><label for="survey-last-walk">Think of a recent walk. What did you do with the points afterward, and why?</label>
-      <textarea id="survey-last-walk" name="last-walk" rows="3"></textarea>
-    </div>
-  </details>
-  <details class="survey-section" data-players>
-    <summary>Building and returning</summary>
-    <fieldset class="survey-question">
-      <legend>What did you spend time on during your last visit?</legend>
-      <p class="survey-hint">Choose any that fit.</p>
-      <label class="survey-choice"><input type="checkbox" name="last-visit" value="Shopping for pieces"> Shopping for pieces</label>
-      <label class="survey-choice"><input type="checkbox" name="last-visit" value="Arranging my town"> Arranging my town</label>
-      <label class="survey-choice"><input type="checkbox" name="last-visit" value="Watching villagers or animals"> Watching villagers or animals</label>
-      <label class="survey-choice"><input type="checkbox" name="last-visit" value="Exploring the map"> Exploring the map</label>
-      <label class="survey-choice"><input type="checkbox" name="last-visit" value="Designing in the Workshop"> Designing in the Workshop</label>
-      <label class="survey-choice"><input type="checkbox" name="last-visit" value="Building with someone else"> Building with someone else</label>
-      <label class="survey-choice"><input type="checkbox" name="last-visit" value="Checking points or rewards"> Checking points or rewards</label>
-      <label class="survey-choice"><input type="checkbox" name="last-visit" value="Something else"> Something else</label>
-    </fieldset>
-    <fieldset class="survey-question">
-      <legend>Which part of your last building session took more effort than you wanted?</legend>
-      <label class="survey-choice"><input type="radio" name="build-friction" value="Finding a particular piece"> Finding a particular piece</label>
-      <label class="survey-choice"><input type="radio" name="build-friction" value="Seeing where a piece would fit"> Seeing where a piece would fit</label>
-      <label class="survey-choice"><input type="radio" name="build-friction" value="Placing it on the intended tile"> Placing it on the intended tile</label>
-      <label class="survey-choice"><input type="radio" name="build-friction" value="Rearranging an existing area"> Rearranging an existing area</label>
-      <label class="survey-choice"><input type="radio" name="build-friction" value="Working out what I could afford"> Working out what I could afford</label>
-      <label class="survey-choice"><input type="radio" name="build-friction" value="Something else"> Something else</label>
-      <label class="survey-choice"><input type="radio" name="build-friction" value="Nothing felt difficult"> Nothing felt difficult</label>
-      <label class="survey-choice"><input type="radio" name="build-friction" value="I haven’t built anything yet"> I haven’t built anything yet</label>
-    </fieldset>
-    <div class="survey-question"><label for="survey-return-reason">What brought you back the last time you opened StepHaven?</label>
-      <textarea id="survey-return-reason" name="return-reason" rows="3"></textarea>
-    </div>
-    <div class="survey-question"><label for="survey-unfinished-project">Is there a project you put aside? What were you building, and what made you stop?</label>
-      <textarea id="survey-unfinished-project" name="unfinished-project" rows="3"></textarea>
-    </div>
-  </details>
-  <details class="survey-section">
-    <summary>StepHaven+ and the website</summary>
-    <fieldset class="survey-question">
-      <legend>Before opening this survey, how familiar were you with StepHaven+?</legend>
-      <label class="survey-choice"><input type="radio" name="plus-familiarity" value="I hadn’t heard of it"> I hadn’t heard of it</label>
-      <label class="survey-choice"><input type="radio" name="plus-familiarity" value="I knew the name"> I knew the name</label>
-      <label class="survey-choice"><input type="radio" name="plus-familiarity" value="I had looked into the features"> I had looked into the features</label>
-      <label class="survey-choice"><input type="radio" name="plus-familiarity" value="I used to have Plus"> I used to have Plus</label>
-      <label class="survey-choice"><input type="radio" name="plus-familiarity" value="I currently have Plus"> I currently have Plus</label>
-    </fieldset>
-    <fieldset class="survey-question">
-      <legend>What would you want a Plus page to explain?</legend>
-      <p class="survey-hint">Choose any that fit.</p>
-      <label class="survey-choice"><input type="checkbox" name="plus-information" value="Which features come with Plus"> Which features come with Plus</label>
-      <label class="survey-choice"><input type="checkbox" name="plus-information" value="What I can do for free"> What I can do for free</label>
-      <label class="survey-choice"><input type="checkbox" name="plus-information" value="Monthly, yearly, and lifetime options"> Monthly, yearly, and lifetime options</label>
-      <label class="survey-choice"><input type="checkbox" name="plus-information" value="Where I can buy it"> Where I can buy it</label>
-      <label class="survey-choice"><input type="checkbox" name="plus-information" value="How to manage or restore a purchase"> How to manage or restore a purchase</label>
-      <label class="survey-choice"><input type="checkbox" name="plus-information" value="What happens when a plan ends"> What happens when a plan ends</label>
-      <label class="survey-choice"><input type="checkbox" name="plus-information" value="Something else"> Something else</label>
-    </fieldset>
-    <fieldset class="survey-question">
-      <legend>What brought you to the website today?</legend>
-      <label class="survey-choice"><input type="radio" name="site-visit" value="Learning what the game is"> Learning what the game is</label>
-      <label class="survey-choice"><input type="radio" name="site-visit" value="Finding help with the game"> Finding help with the game</label>
-      <label class="survey-choice"><input type="radio" name="site-visit" value="Checking what’s new"> Checking what’s new</label>
-      <label class="survey-choice"><input type="radio" name="site-visit" value="Reading a guide or journal story"> Reading a guide or journal story</label>
-      <label class="survey-choice"><input type="radio" name="site-visit" value="Looking into Plus"> Looking into Plus</label>
-      <label class="survey-choice"><input type="radio" name="site-visit" value="Taking this survey"> Taking this survey</label>
-      <label class="survey-choice"><input type="radio" name="site-visit" value="Something else"> Something else</label>
-    </fieldset>
-    <div class="survey-question"><label for="survey-site-missing">What, if anything, did you come looking for and leave without finding?</label>
-      <textarea id="survey-site-missing" name="site-missing" rows="3"></textarea>
-    </div>
-  </details>
-  <details class="survey-section">
-    <summary>What should we work on?</summary>
-    <fieldset class="survey-question">
-      <legend>If we could work on one area next, which would you choose?</legend>
-      <label class="survey-choice"><input type="radio" name="priority" value="Making it easier to get started"> Making it easier to get started</label>
-      <label class="survey-choice"><input type="radio" name="priority" value="Making step tracking clearer"> Making step tracking clearer</label>
-      <label class="survey-choice"><input type="radio" name="priority" value="Improving building controls"> Improving building controls</label>
-      <label class="survey-choice"><input type="radio" name="priority" value="Adding more things to build"> Adding more things to build</label>
-      <label class="survey-choice"><input type="radio" name="priority" value="Giving townspeople more to do"> Giving townspeople more to do</label>
-      <label class="survey-choice"><input type="radio" name="priority" value="Improving shared havens"> Improving shared havens</label>
-      <label class="survey-choice"><input type="radio" name="priority" value="Improving performance"> Improving performance</label>
-      <label class="survey-choice"><input type="radio" name="priority" value="Something else"> Something else</label>
-      <label class="survey-choice"><input type="radio" name="priority" value="I don’t have a preference"> I don’t have a preference</label>
-    </fieldset>
-    <div class="survey-question"><label for="survey-priority-example">What would that change let you do? A specific example helps.</label>
-      <textarea id="survey-priority-example" name="priority-example" rows="3"></textarea>
-    </div>
-    <div class="survey-question"><label for="survey-keep">What already works well for you that you’d want us to keep?</label>
-      <textarea id="survey-keep" name="keep" rows="3"></textarea>
-    </div>
-  </details>
-</dialog>
-<script>
-  (() => {
-    const survey = document.getElementById('player-survey');
-    const writeIn = survey.querySelector('.survey-write-in');
-    document.getElementById('open-survey').addEventListener('click', () => survey.showModal());
-    survey.addEventListener('change', event => {
-      if (event.target.name === 'play-duration') {
-        const newVisitor = event.target.value === "I haven't played yet";
-        survey.querySelectorAll('[data-players]').forEach(section => { section.hidden = newVisitor; });
-      }
-      if (event.target.name === 'discovery') writeIn.hidden = event.target.value !== 'Other';
-    });
-  })();
-</script>
 </body>
 </html>
