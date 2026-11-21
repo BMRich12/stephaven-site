@@ -32,7 +32,7 @@
 <link rel="preload" href="fonts/BarlowCondensed-800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/Barlow-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="site.css?v=13">
-<link rel="preload" as="image" href="img/dial/summer-midday.jpg" imagesrcset="img/dial/summer-midday-900.avif 900w, img/dial/summer-midday.avif 1600w" type="image/avif" imagesizes="(max-width: 899px) 92vw, 760px" fetchpriority="high">
+<link rel="preload" as="image" href="img/hero-1600.jpg" imagesrcset="img/hero-900.avif 900w, img/hero-1600.avif 1600w, img/hero-2400.avif 2400w" imagesizes="100vw" type="image/avif" fetchpriority="high">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -54,8 +54,10 @@
   "genre": [
     "Simulation",
     "Casual",
-    "Health & Fitness"
+    "Health & Fitness",
+    "Cozy"
   ],
+  "keywords": "cozy game, cozy town builder, walking game, step counter game, Apple Health game, iPhone",
   "description": "A cozy town-building game you play by walking. Your iPhone counts your steps; StepHaven turns them into points you spend on cottages, gardens, ponds, trains and boats.",
   "offers": {
     "@type": "Offer",
@@ -354,8 +356,98 @@
   .survey-choice input { accent-color: var(--sign); }
   .survey-write-in { margin-top: 14px; }
   .survey-write-in input { display: block; width: 100%; margin-top: 4px; padding: 10px; font: inherit; }
+  .survey-intro { margin: 18px 24px; }
+  .survey-section { border-top: 1px solid var(--grid); }
+  .survey-section summary { padding: 16px 24px; cursor: pointer; font-weight: 600; }
+  .survey-section[open] summary { background: var(--field); }
+  .survey-question > label[for] { display: block; font: 700 2rem/1.08 var(--display); }
+  .survey-question textarea { display: block; width: 100%; margin-top: 12px; padding: 10px; resize: vertical; font: inherit; }
+  .survey-hint { margin-bottom: 4px; color: var(--ink-soft); }
   @media (max-width: 600px) {
     #player-survey { width: 100%; max-width: 100%; margin: auto 0 0; border-radius: 16px 16px 0 0; padding-bottom: env(safe-area-inset-bottom); }
+  }
+
+  /* ---------- Direction A: the town first, then what's on ---------- */
+  .cover.town { overflow: visible; }
+  .topbar { position: relative; z-index: 6; background: var(--margin); border-bottom: 2px solid var(--ink); }
+  .topbar .wrap { display: flex; align-items: center; gap: 10px 26px; flex-wrap: wrap; padding-top: 10px; padding-bottom: 10px; max-width: 1320px; }
+  .topbar .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font: 800 26px/1 var(--display); text-transform: uppercase; letter-spacing: .02em; }
+  .topbar .brand img { width: 34px; height: 34px; border-radius: 9px; }
+  .topbar nav { display: flex; gap: 6px 20px; flex-wrap: wrap; flex: 1; min-width: 0; font: 700 16px/1 var(--display); text-transform: uppercase; letter-spacing: .06em; }
+  .topbar nav a { text-decoration: none; padding: 6px 0; }
+  .topbar nav a:hover { color: var(--path-deep); }
+  .topbar .play { display: inline-flex; align-items: center; gap: 8px; background: var(--ink); color: var(--key); text-decoration: none; border-radius: 10px; padding: 9px 14px; font: 700 15px/1 var(--display); letter-spacing: .06em; text-transform: uppercase; }
+  .topbar .play svg { width: 13px; height: 16px; fill: currentColor; }
+  .topbar .play:hover { background: var(--wood-deep); color: #fff; }
+
+  .town-pic { position: relative; overflow: hidden; height: clamp(420px, 50vw, 660px); background: #7EA94F; }
+  .town-pic img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; max-width: none; }
+  .town-pic .here { left: 50%; top: 24%; }
+  .town-pic .sheetno { position: absolute; left: 16px; top: 16px; z-index: 3; display: flex; align-items: center; gap: 8px; background: var(--key); border: 2px solid var(--ink); padding: 5px 10px; font: 700 13px/1 var(--display); letter-spacing: .08em; text-transform: uppercase; }
+  .town-pic .sheetno i { width: 54px; height: 7px; border: 1.5px solid var(--ink); background: linear-gradient(90deg, var(--ink) 0 33%, #fff 33% 66%, var(--ink) 66%); }
+  .key { position: absolute; z-index: 5; right: max(20px, 4vw); bottom: clamp(20px, 4vw, 48px); width: min(460px, calc(100% - 40px));
+         background: var(--key); border: 2px solid var(--ink); box-shadow: 6px 6px 0 var(--ink); padding: 22px 26px 20px; }
+  .key .kind { display: block; font: 700 14px/1 var(--display); letter-spacing: .1em; text-transform: uppercase; color: var(--wood-deep); margin-bottom: 8px; }
+  .key h1 { font-size: clamp(56px, 7vw, 84px); line-height: .86; }
+  .key .promise { font-size: 18px; color: var(--ink-soft); margin: 12px 0 16px; }
+  .key .row { display: flex; align-items: center; gap: 14px 18px; flex-wrap: wrap; }
+  .key .badge { min-height: 56px; padding: 8px 20px 8px 16px; border-radius: 12px; }
+  .key .badge svg { width: 24px; height: 30px; }
+  .key .badge b { font-size: 24px; }
+  .key .newhere { font: 700 15px/1.2 var(--display); letter-spacing: .06em; text-transform: uppercase; }
+  .key > *, .key .badge, .key .fine, .key .promise, .key h1 { order: 0; }
+  .key .fine { margin: 12px 0 0; font-size: 14px; color: var(--ink-soft); }
+
+  .leg .sub { font: 600 14px/1.3 var(--text); color: var(--grid-ink); margin: -6px 0 22px; }
+  .week { background: var(--key); border: 2px solid var(--ink); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .week > div { padding: 18px 18px 20px; display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 4px 12px; align-content: start; border-right: 1.5px dashed rgba(27,42,29,.35); min-width: 0; }
+  .week > div:last-child { border-right: 0; }
+  .week .sym { grid-row: span 3; width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--ink); background: var(--field); display: grid; place-items: center; overflow: hidden; }
+  .week .sym svg { width: 22px; height: 22px; fill: currentColor; }
+  .week .sym img { width: 44px; height: auto; margin-top: 6px; }
+  .week .tag { font: 700 13px/1 var(--display); letter-spacing: .1em; text-transform: uppercase; color: var(--grid-ink); padding-top: 4px; }
+  .week h3 { font-size: 21px; }
+  .week p { margin: 2px 0 0; font-size: 15px; line-height: 1.45; color: var(--ink-soft); }
+  .week a { font-weight: 600; }
+
+  .places { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  .place { background: var(--key); border: 2px solid var(--ink); text-decoration: none; display: flex; flex-direction: column; min-width: 0; transition: transform .2s var(--ease), box-shadow .2s var(--ease); }
+  .place:hover { transform: translate(-3px, -3px); box-shadow: 5px 5px 0 var(--ink); }
+  .place img { aspect-ratio: 16 / 10; width: 100%; object-fit: cover; border-bottom: 2px solid var(--ink); }
+  .place div { padding: 14px 16px 16px; }
+  .place .tag { font: 700 13px/1 var(--display); letter-spacing: .1em; text-transform: uppercase; color: var(--grid-ink); }
+  .place h3 { margin: 6px 0 4px; }
+  .place p { margin: 0; font-size: 15px; line-height: 1.45; color: var(--ink-soft); }
+
+  .folk { background: var(--key); border: 2px solid var(--ink); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .folk > div { padding: 18px 18px 20px; border-right: 1.5px dashed rgba(27,42,29,.35); min-width: 0; }
+  .folk > div:last-child { border-right: 0; }
+  .folk svg { width: 34px; height: 34px; fill: currentColor; }
+  .folk .when { display: block; margin-top: 8px; font: 700 13px/1 var(--display); letter-spacing: .1em; text-transform: uppercase; color: var(--grid-ink); }
+  .folk h3 { margin: 6px 0 4px; }
+  .folk p { margin: 0; font-size: 15px; line-height: 1.45; color: var(--ink-soft); }
+
+  .eyebrow { display: inline-block; font: 700 15px/1 var(--display); letter-spacing: .1em; text-transform: uppercase; color: #fff; background: var(--path); padding: 6px 10px; margin-bottom: 14px; }
+
+  @media (max-width: 1000px) {
+    .week, .folk { grid-template-columns: 1fr 1fr; }
+    .week > div:nth-child(2n), .folk > div:nth-child(2n) { border-right: 0; }
+    .week > div:nth-child(-n+2), .folk > div:nth-child(-n+2) { border-bottom: 1.5px dashed rgba(27,42,29,.35); }
+  }
+  @media (max-width: 899px) {
+    .town-pic { height: clamp(300px, 72vw, 440px); }
+    .key { position: relative; right: auto; bottom: auto; width: auto; margin: -36px 16px 0; box-shadow: 4px 4px 0 var(--ink); }
+    .places { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .week, .folk { grid-template-columns: 1fr; }
+    .week > div, .folk > div { border-right: 0; border-bottom: 1.5px dashed rgba(27,42,29,.35); }
+    .week > div:last-child, .folk > div:last-child { border-bottom: 0; }
+    .topbar .wrap { gap: 8px 12px; }
+    .topbar .brand { font-size: 23px; margin-right: auto; }
+    .topbar .long { display: none; }
+    .topbar nav { order: 3; flex-basis: 100%; flex-wrap: nowrap; overflow-x: auto; gap: 18px; font-size: 15px; scrollbar-width: none; }
+    .topbar nav a { white-space: nowrap; }
   }
 </style>
 </head>
@@ -363,6 +455,15 @@
 <a class="skip" href="#walk">Skip to content</a>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 2.6a7.4 7.4 0 1 1 0 14.8 7.4 7.4 0 0 1 0-14.8zM15.6 8.4 13.4 13.4 8.4 15.6 10.6 10.6z"/></symbol>
+    <symbol id="i-folk" viewBox="0 0 24 24"><circle cx="8" cy="6.5" r="3"/><circle cx="16.5" cy="7.5" r="2.5"/><path d="M2.5 21c0-5 2.5-8.5 5.5-8.5s5.5 3.5 5.5 8.5zM12.5 21c.3-4.6 2.1-7.6 4-7.6 2.4 0 4.5 3 4.5 7.6z"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><path d="M7 2h2v2h6V2h2v2h3v17H4V4h3zm-1 7v10h12V9zm2 2h3v3H8z"/></symbol>
+    <symbol id="i-lantern" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M9 3h6M12 3v2M8 7h8l-1 11H9z"/><path d="M8 18h8v2H8z"/></g><circle cx="12" cy="12.5" r="2" fill="currentColor"/></symbol>
+    <symbol id="i-sundown" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 17h18M6.5 17a5.5 5.5 0 0 1 11 0M12 6v2M5.6 9.6l1.4 1.4M18.4 9.6 17 11M20 21H4"/></g></symbol>
+    <symbol id="i-antler" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 21v-6M12 15c-3-1-5-4-5-8M7 7 5 4M7 7l2-3M12 15c3-1 5-4 5-8M17 7l2-3M17 7l-2-3M9 11 6 10M15 11l3-1"/></g></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M20 4C9 4 4 9 4 16c0 1.6.4 3 .9 4l1.7-1.7C7.9 13.9 11.3 10.7 16 9c-4 2.3-7 5.3-8.9 9.8C17 19 20 13 20 4z"/></symbol>
+    <symbol id="i-rail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 3 5 21M16 3l3 18M6.8 8h10.4M6 13h12M5.2 18h13.6"/></g></symbol>
   <defs>
     <symbol id="i-apple" viewBox="0 0 24 30"><path d="M19.6 16c0-3 2.5-4.4 2.6-4.5-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.6 1.1-4.6 1.1-1 0-2.4-1.1-4-1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.2 1.5 12.2 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 3.9-1s2.4 1 4 1c1.6 0 2.7-1.5 3.7-3 1.2-1.7 1.6-3.3 1.7-3.4-.1 0-3.2-1.2-3.2-5zM16.6 6.9c.8-1 1.4-2.4 1.2-3.8-1.2.1-2.7.8-3.5 1.8-.8.9-1.5 2.3-1.3 3.7 1.3.1 2.7-.7 3.6-1.7z"/></symbol>
     <symbol id="i-foot" viewBox="0 0 24 24"><ellipse cx="8.5" cy="9" rx="3.6" ry="5.4" transform="rotate(-12 8.5 9)"/><ellipse cx="7.6" cy="18.6" rx="2.4" ry="2.6"/><ellipse cx="16.2" cy="6.2" rx="3.2" ry="4.8" transform="rotate(10 16.2 6.2)"/><ellipse cx="17" cy="14.6" rx="2.2" ry="2.4"/></symbol>
@@ -401,59 +502,111 @@
     <circle class="walker" id="walker" r="8" cx="-50" cy="-50"/>
   </svg>
 
-  <header class="cover" id="top">
-    <canvas class="contours" data-seed="7" aria-hidden="true"></canvas>
-    <svg class="north" viewBox="0 0 40 64" aria-hidden="true"><path d="M20 4 30 42 20 34 10 42z" fill="#1B2A1D"/><path d="M20 4 20 34 10 42z" fill="#FBFCF3" stroke="#1B2A1D" stroke-width="1.5" stroke-linejoin="round"/><text x="20" y="60" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="16" fill="#1B2A1D">N</text></svg>
-    <div class="wrap cover-in">
-      <div class="cover-text">
-        <picture><source type="image/webp" srcset="img/icon-208.webp 2x, img/icon-312.webp 3x"><img class="icon" src="img/icon-208.png" alt="StepHaven app icon" width="104" height="104"></picture>
-        <h1>Step<span>Haven</span></h1>
-        <p class="promise">Walk in real life. Spend your steps on a cozy little town.</p>
+  <header class="cover town" id="top">
+    <div class="topbar">
+      <div class="wrap">
+        <a class="brand" href="./"><img src="img/icon-64.png" alt="" width="34" height="34">StepHaven</a>
+        <nav aria-label="Main">
+          <a href="#week">This week</a>
+          <a href="changelog/">What's New</a>
+          <a href="journal/">Journal</a>
+          <a href="build-planner/">Build Planner</a>
+          <a href="press/">Press</a>
+        </nav>
+        <a class="play" href="https://apps.apple.com/app/apple-store/id6817135263?pt=127985050&amp;ct=website&amp;mt=8"><svg aria-hidden="true"><use href="#i-apple"/></svg>Play<span class="long"> on iPhone</span></a>
+      </div>
+    </div>
+    <div class="town-pic">
+      <picture><source type="image/avif" srcset="img/hero-900.avif 900w, img/hero-1600.avif 1600w, img/hero-2400.avif 2400w" sizes="100vw"><img src="img/hero-1600.jpg" srcset="img/hero-900.jpg 900w, img/hero-1600.jpg 1600w, img/hero.jpg 2400w" sizes="100vw" alt="A StepHaven town: cottages round a square with a flag, a well and a fountain, lamp posts, gardens, a stream and a koi pond, villagers walking the lanes" width="2400" height="1350" fetchpriority="high"></picture>
+      <span class="sheetno" aria-hidden="true"><i></i>Sheet 1 · A town square</span>
+      <span class="here" id="here" aria-hidden="true"><i></i><b>You are here</b></span>
+    </div>
+    <div class="key">
+      <span class="kind">A cozy walking game for iPhone</span>
+      <h1>Step<span>Haven</span></h1>
+      <p class="promise">Walk in real life. Spend your steps on a cozy little town.</p>
+      <div class="row">
         <a class="badge" href="https://apps.apple.com/app/apple-store/id6817135263?pt=127985050&amp;ct=website&amp;mt=8" aria-label="Download StepHaven on the App Store">
           <svg aria-hidden="true"><use href="#i-apple"/></svg><span><small>Download on the</small><b>App Store</b></span>
         </a>
-        <p class="fine">Free on iPhone. No ads, no timers.</p>
-        <aside class="founders" id="founders" aria-label="Founders' gift">
-          <img src="img/pioneer-gnome.png" alt="The Pioneer Gnome statue: a gnome with a red hat, a lantern and a yellow pennant, on a stone plinth marked 2026" width="120" height="113">
-          <div>
-            <b>For a limited time</b>
-            <p>Download StepHaven now and the Pioneer Gnome is yours: a founders' statue for your town that won't be offered again.</p>
-          </div>
-        </aside>
+        <a class="newhere" href="#new">New here? Start with the walk</a>
       </div>
-      <figure class="inset dial" id="dial">
-        <div class="frame">
-          <div class="scene">
-            <picture><source type="image/avif" srcset="img/dial/summer-midday-900.avif 900w, img/dial/summer-midday.avif 1600w" sizes="(max-width: 899px) 92vw, 760px"><img class="fallback" src="img/dial/summer-midday.jpg" srcset="img/dial/summer-midday-900.jpg 900w, img/dial/summer-midday.jpg 1600w" sizes="(max-width: 899px) 92vw, 760px" alt="A StepHaven town round a square with a flag and a well, a clock tower, cottages, lamp posts and flower gardens" width="2400" height="1500" fetchpriority="high"></picture>
-          </div>
-          <span class="here" id="here" aria-hidden="true"><i></i><b>You are here</b></span>
-          <p class="clock" aria-hidden="true"><b>12:30 pm</b><small>Set to your clock</small></p>
-        </div>
-        <div class="dial-controls">
-          <div class="daytrack" role="slider" tabindex="0" aria-label="Time of day in the town" aria-valuemin="5" aria-valuemax="23" aria-valuenow="12.5">
-            <span class="sky" aria-hidden="true"></span>
-            <span class="hours" aria-hidden="true"><i style="left:4.2%">Dawn</i><i style="left:41.7%">Noon</i><i style="left:77.8%">Dusk</i><i style="left:91.7%">Night</i></span>
-            <span class="knob" aria-hidden="true">
-              <svg class="sun" viewBox="0 0 24 24"><g stroke="#B9712C" stroke-width="2.2" stroke-linecap="round"><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"/></g><circle cx="12" cy="12" r="5.2" fill="#F0B332" stroke="#B9712C" stroke-width="1.6"/></svg>
-              <svg class="moonicon" viewBox="0 0 24 24"><path d="M15.5 3.5a8.5 8.5 0 1 0 5 13.6A7 7 0 0 1 15.5 3.5z" fill="#F3EDC9" stroke="#1B2A1D" stroke-width="1.6" stroke-linejoin="round"/></svg>
-            </span>
-          </div>
-          <div class="seasons" role="radiogroup" aria-label="Season">
-            <button type="button" role="radio" data-season="spring" aria-checked="false" tabindex="-1"><svg viewBox="0 0 20 20" aria-hidden="true"><g fill="#E58FB0" stroke="#A8456C" stroke-width="1"><circle cx="10" cy="5" r="3.4"/><circle cx="15" cy="8.6" r="3.4"/><circle cx="13" cy="14.4" r="3.4"/><circle cx="7" cy="14.4" r="3.4"/><circle cx="5" cy="8.6" r="3.4"/></g><circle cx="10" cy="10" r="2.4" fill="#F0B332"/></svg>Spring</button>
-            <button type="button" role="radio" data-season="summer" aria-checked="true"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8" fill="#86B865" stroke="#2F6A39" stroke-width="1.5"/><path d="M10 18V9M10 12l-3-3M10 11l3.5-3" stroke="#2F6A39" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>Summer</button>
-            <button type="button" role="radio" data-season="autumn" aria-checked="false" tabindex="-1"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5c1 2.6 2.4 3 4.6 2.4-.6 2.2 0 3.4 2.4 4.1-1.8 1.4-1.9 2.6-.6 4.6-2.4-.1-3.4.8-3.7 3.3L10 14l-2.7 1.9C7 13.4 6 12.5 3.6 12.6c1.3-2 1.2-3.2-.6-4.6 2.4-.7 3-1.9 2.4-4.1 2.2.6 3.6.2 4.6-2.4z" fill="#D9542C" stroke="#8C2E14" stroke-width="1" stroke-linejoin="round"/><path d="M10 6v13" stroke="#8C2E14" stroke-width="1.4"/></svg>Autumn</button>
-            <button type="button" role="radio" data-season="winter" aria-checked="false" tabindex="-1"><svg viewBox="0 0 20 20" aria-hidden="true"><g stroke="#2F6FA3" stroke-width="1.8" stroke-linecap="round"><path d="M10 1.5v17M2.6 5.8l14.8 8.4M2.6 14.2l14.8-8.4"/><path d="M8 3.4 10 5l2-1.6M8 16.6 10 15l2 1.6M3.3 8.3l2.4-.4-.9-2.3M16.7 11.7l-2.4.4.9 2.3M4.8 14.4l.9-2.3-2.4-.4M15.2 5.6l-.9 2.3 2.4.4" fill="none"/></g></svg>Winter</button>
-          </div>
-        </div>
-      </figure>
+      <p class="fine">Free on iPhone. No ads, no timers.</p>
     </div>
   </header>
 
   <main id="walk">
-    <section class="leg" aria-labelledby="h-how">
+    <section class="leg" id="week" aria-labelledby="h-week">
+      <div class="wrap leg-in">
+        <span class="wp" data-wp><svg><use href="#i-cal"/></svg></span>
+        <div>
+          <h2 id="h-week">This week in StepHaven</h2>
+          <p class="sub">What's going on in every town right now.</p>
+          <div class="week">
+            <div id="wk-moon">
+              <span class="sym" style="color:#3D3470"><svg aria-hidden="true"><use href="#i-moon"/></svg></span>
+              <span class="tag">The Moonfair</span>
+              <h3 data-moon-title>Barnaby Moon's caravan</h3>
+              <p data-moon-text>Comes to town on every full moon and stays for one day, the same day in every town.</p>
+            </div>
+            <div>
+              <span class="sym" style="color:#B9712C"><svg aria-hidden="true"><use href="#i-leaf"/></svg></span>
+              <span class="tag">The season</span>
+              <h3 data-season-title>The seasons turn</h3>
+              <p data-season-text>Every town follows the calendar, so the grass, the trees and the weather change through the year.</p>
+            </div>
+            <div>
+              <span class="sym" style="color:var(--path)"><svg aria-hidden="true"><use href="#i-rail"/></svg></span>
+              <span class="tag">Latest update · 1.0.6</span>
+              <h3>Railway crossings</h3>
+              <p>Lay a path across a railway and villagers wait for the train. <a href="changelog/">What's new</a></p>
+            </div>
+            <div id="wk-gnome">
+              <span class="sym"><img src="img/pioneer-gnome.png" alt="" width="120" height="113"></span>
+              <span class="tag">Founders' gift</span>
+              <h3>The Pioneer Gnome</h3>
+              <p>Download now and this founders' statue is yours. It won't be offered again.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="leg" aria-labelledby="h-explore">
+      <div class="wrap leg-in">
+        <span class="wp" data-wp><svg><use href="#i-compass"/></svg></span>
+        <div>
+          <h2 id="h-explore">Explore StepHaven</h2>
+          <div class="places">
+            <a class="place" href="changelog/"><img src="img/dial/autumn-dusk-900.jpg" alt="" width="900" height="563" loading="lazy"><div><span class="tag">Updates</span><h3>What's New</h3><p>Every update since launch, newest first.</p></div></a>
+            <a class="place" href="build-planner/"><img src="journal/img/gnome-garden.jpg" alt="" width="1440" height="810" loading="lazy"><div><span class="tag">Plan a build</span><h3>Build Planner</h3><p>See what a bench, a gnome garden or a dog yard costs in steps.</p></div></a>
+            <a class="place" href="journal/"><img src="journal/img/seasons-autumn-dusk.jpg" alt="" width="1440" height="810" loading="lazy"><div><span class="tag">Guides and stories</span><h3>The Journal</h3><p>How the game works, building with friends, and how it's made.</p></div></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="leg" aria-labelledby="h-folk">
+      <div class="wrap leg-in">
+        <span class="wp" data-wp><svg><use href="#i-folk"/></svg></span>
+        <div>
+          <h2 id="h-folk">Folk you'll meet</h2>
+          <p class="sub">Some come often. Some almost never.</p>
+          <div class="folk">
+            <div><svg aria-hidden="true" style="color:#B9712C"><use href="#i-lantern"/></svg><span class="when">Every few days</span><h3>Wendel</h3><p>The travelling merchant, with three bargains in his pack and now and then a curiosity.</p></div>
+            <div><svg aria-hidden="true" style="color:#3D3470;fill:currentColor"><use href="#i-moon"/></svg><span class="when">Every full moon</span><h3>Barnaby Moon</h3><p>Brings the Moonfair to town for one day.</p></div>
+            <div><svg aria-hidden="true" style="color:var(--path)"><use href="#i-sundown"/></svg><span class="when">Evenings</span><h3>Marigold Fenn</h3><p>The Sundown Trader. She's likelier to come after a long day on your feet.</p></div>
+            <div><svg aria-hidden="true" style="color:var(--wood-deep)"><use href="#i-antler"/></svg><span class="when">Rarely</span><h3>The White Stag</h3><p>Some players have seen it. Nobody says much about how.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="leg" id="new" aria-labelledby="h-how">
       <div class="wrap leg-in">
         <span></span>
         <div>
+          <span class="eyebrow">New to StepHaven?</span>
           <h2 id="h-how">How a walk becomes a town</h2>
           <p class="lede">Your iPhone already counts your steps, and so does an Apple Watch. StepHaven reads them from Apple Health, so there's nothing to start or switch on. Go out, come back, build.</p>
           <div class="how"><div class="stops">
@@ -543,6 +696,7 @@
           <h2 id="h-notes">Before you set off</h2>
           <div class="notes">
             <details><summary>What is StepHaven?<span class="pm" aria-hidden="true"></span></summary><p>StepHaven, one word, is a cozy town-building game for iPhone, made by an independent developer. You play it by walking: your steps become points you spend on cottages, gardens, trains and boats for your own little town.</p></details>
+            <details><summary>Is StepHaven a cozy game?<span class="pm" aria-hidden="true"></span></summary><p>Yes. It's a gentle town builder with no ads, no timers and nothing that breaks while you're away. The town follows your clock and the seasons, villagers move in, and wild animals wander by. The twist is that you earn what you build by walking.</p></details>
             <details><summary>Is StepHaven free?<span class="pm" aria-hidden="true"></span></summary><p>Yes, it's free to play, with one town of your own and one to share. StepHaven+ is an optional membership that adds more Workshop shapes and styles and more towns. Item packs such as Cottage Garden are sold separately. Steps themselves are never for sale.</p></details>
             <details><summary>Do I need an Apple Watch?<span class="pm" aria-hidden="true"></span></summary><p>No. Your iPhone counts your steps on its own. A Watch adds steps recorded without your phone and is needed for wheelchair pushes. Ember works best with Apple Watch and requires qualifying exercise minutes and active calories in Apple Health. <a href="journal/every-kind-of-moving/">See the movement requirements</a>.</p></details>
             <details><summary>Can I play if I use a wheelchair?<span class="pm" aria-hidden="true"></span></summary><p>Yes. Turn on Count Wheelchair Pushes and the pushes your Apple Watch records earn points just like steps.</p></details>
@@ -631,7 +785,47 @@
   });
 })();
 </script>
-<script src="dial.js?v=15" defer></script>
+<script>
+/* This week: the Moonfair, the season and the founders' gift, worked out on the visitor's own clock. */
+(function () {
+  // Full moons, UTC seconds, from the game's own Meeus calculation (Moonfair.swift,
+  // via AppStore/tools/hq/telemetrydeck_daily.py). Runs to 2029; regenerate before then.
+  var MOONS = [1795532012,1798075694,1800620241,1803165814,1805712226,1808260028,1810810739,1813365864,1815925498,1818487722,1821049417,1823608024,1826162753,1828714128,1831262585,1833807822,1836349567,1838888799,1841428132,1843970929,1846519852,1849075791,1851637660,1854203105,1856769442,1859334013,1861894110,1864447416,1866993018,1869531987,1872067010,1874601452,1877138540,1879680947,1882230682,1884788965,1887355660,1889928186];
+  var HALF = 12 * 3600, now = Date.now() / 1000;
+  var title = document.querySelector('[data-moon-title]'), text = document.querySelector('[data-moon-text]');
+  var day = { weekday: 'long', month: 'long', day: 'numeric' };
+  for (var i = 0; i < MOONS.length; i++) {
+    var m = MOONS[i];
+    if (m + HALF < now) continue;
+    if (m - HALF <= now) {
+      title.textContent = 'The Moonfair is in town';
+      text.textContent = 'Barnaby Moon is in every town until ' + new Date((m + HALF) * 1000).toLocaleTimeString(undefined, { weekday: 'long', hour: 'numeric', minute: '2-digit' }) + '. Open StepHaven to find his caravan.';
+    } else {
+      var days = Math.round((m - now) / 86400);
+      title.textContent = days <= 1 ? 'The Moonfair is nearly here' : 'Moonfair in ' + days + ' days';
+      text.textContent = 'Barnaby Moon brings his caravan with the full moon on ' + new Date(m * 1000).toLocaleDateString(undefined, day) + '. It stays one day, in every town at once.';
+    }
+    break;
+  }
+
+  // Seasons as the game has them: by month, flipped south of the equator.
+  var tz = ''; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
+  var south = /^(Australia|Antarctica)\/|^Pacific\/(Auckland|Chatham|Fiji|Tongatapu|Noumea)|^America\/(Sao_Paulo|Argentina|Buenos_Aires|Santiago|Montevideo|Asuncion|Lima|La_Paz)|^Africa\/(Johannesburg|Maputo|Harare|Windhoek|Gaborone|Maseru|Mbabane|Lusaka|Blantyre)|^Indian\/(Mauritius|Reunion|Antananarivo)/.test(tz);
+  var mo = new Date().getMonth(), idx = Math.floor(((mo + 1) % 12) / 3);   // 0 winter, 1 spring, 2 summer, 3 autumn
+  if (south) idx = (idx + 2) % 4;
+  var SEASONS = [
+    ['Winter in the havens', 'Snow on the roofs and lanes, frost on the grass, and lights in every window by teatime.'],
+    ['Spring in the havens', 'Blossom on the trees, fresh green grass and wildflowers coming up in the meadows.'],
+    ['Summer in the havens', 'Long bright days, full gardens and villagers out late in the warm evenings.'],
+    ['Autumn in the havens', 'Gold grass, leaves on the roofs and mist on the ponds on cold mornings.']
+  ];
+  document.querySelector('[data-season-title]').textContent = SEASONS[idx][0];
+  document.querySelector('[data-season-text]').textContent = SEASONS[idx][1];
+
+  // The Pioneer Gnome is for downloads before the end of January 31, 2027 (Pacific).
+  if (now > Date.UTC(2027, 1, 1, 8) / 1000) document.getElementById('wk-gnome').remove();
+})();
+</script>
 <script src="map.js?v=13" defer></script>
 <script src="acquisition.js?v=2" defer></script>
 
@@ -640,45 +834,199 @@
     <h2 id="survey-title">Player Survey</h2>
     <form method="dialog"><button class="survey-close" autofocus>Close</button></form>
   </header>
-  <fieldset class="survey-question">
-    <legend>Where do you hear about us?</legend>
-    <label class="survey-choice"><input type="radio" name="discovery" value="A friend or family member"> A friend or family member</label>
-    <label class="survey-choice"><input type="radio" name="discovery" value="The App Store"> The App Store</label>
-    <label class="survey-choice"><input type="radio" name="discovery" value="TikTok"> TikTok</label>
-    <label class="survey-choice"><input type="radio" name="discovery" value="Instagram"> Instagram</label>
-    <label class="survey-choice"><input type="radio" name="discovery" value="YouTube"> YouTube</label>
-    <label class="survey-choice"><input type="radio" name="discovery" value="Reddit"> Reddit</label>
-    <label class="survey-choice"><input type="radio" name="discovery" value="Facebook"> Facebook</label>
-    <label class="survey-choice"><input type="radio" name="discovery" value="Pinterest"> Pinterest</label>
-    <label class="survey-choice"><input type="radio" name="discovery" value="X or Bluesky"> X or Bluesky</label>
-    <label class="survey-choice"><input type="radio" name="discovery" value="A web search"> A web search</label>
-    <label class="survey-choice"><input type="radio" name="discovery" value="A gaming website or newsletter"> A gaming website or newsletter</label>
-    <label class="survey-choice"><input type="radio" name="discovery" value="A walking or fitness community"> A walking or fitness community</label>
-    <label class="survey-choice"><input type="radio" name="discovery" value="I don't remember"> I don't remember</label>
-    <label class="survey-choice"><input type="radio" name="discovery" value="Other"> Other</label>
-    <div class="survey-write-in" hidden>
-      <label for="survey-source">Where else did you hear about StepHaven?</label>
-      <input id="survey-source" type="text">
+  <p class="survey-intro">Open any topic that interests you. Every question is optional.</p>
+  <details class="survey-section">
+    <summary>Finding StepHaven</summary>
+    <fieldset class="survey-question">
+      <legend>Where did you first hear about StepHaven?</legend>
+      <label class="survey-choice"><input type="radio" name="discovery" value="A friend or family member"> A friend or family member</label>
+      <label class="survey-choice"><input type="radio" name="discovery" value="The App Store"> The App Store</label>
+      <label class="survey-choice"><input type="radio" name="discovery" value="TikTok"> TikTok</label>
+      <label class="survey-choice"><input type="radio" name="discovery" value="Instagram"> Instagram</label>
+      <label class="survey-choice"><input type="radio" name="discovery" value="YouTube"> YouTube</label>
+      <label class="survey-choice"><input type="radio" name="discovery" value="Reddit"> Reddit</label>
+      <label class="survey-choice"><input type="radio" name="discovery" value="Facebook"> Facebook</label>
+      <label class="survey-choice"><input type="radio" name="discovery" value="Pinterest"> Pinterest</label>
+      <label class="survey-choice"><input type="radio" name="discovery" value="X or Bluesky"> X or Bluesky</label>
+      <label class="survey-choice"><input type="radio" name="discovery" value="A web search"> A web search</label>
+      <label class="survey-choice"><input type="radio" name="discovery" value="A gaming website or newsletter"> A gaming website or newsletter</label>
+      <label class="survey-choice"><input type="radio" name="discovery" value="A walking or fitness community"> A walking or fitness community</label>
+      <label class="survey-choice"><input type="radio" name="discovery" value="I don't remember"> I don't remember</label>
+      <label class="survey-choice"><input type="radio" name="discovery" value="Other"> Other</label>
+      <div class="survey-write-in" hidden>
+        <label for="survey-source">Where else did you hear about StepHaven?</label>
+        <input id="survey-source" type="text">
+      </div>
+    </fieldset>
+    <fieldset class="survey-question">
+      <legend>How long have you been playing StepHaven?</legend>
+      <label class="survey-choice"><input type="radio" name="play-duration" value="Less than a week"> Less than a week</label>
+      <label class="survey-choice"><input type="radio" name="play-duration" value="1 week to less than 1 month"> 1 week to less than 1 month</label>
+      <label class="survey-choice"><input type="radio" name="play-duration" value="1 to less than 3 months"> 1 to less than 3 months</label>
+      <label class="survey-choice"><input type="radio" name="play-duration" value="3 to less than 6 months"> 3 to less than 6 months</label>
+      <label class="survey-choice"><input type="radio" name="play-duration" value="6 months or more"> 6 months or more</label>
+      <label class="survey-choice"><input type="radio" name="play-duration" value="I haven't played yet"> I haven't played yet</label>
+    </fieldset>
+    <fieldset class="survey-question" data-players>
+      <legend>How often do you play StepHaven?</legend>
+      <label class="survey-choice"><input type="radio" name="play-frequency" value="Every day"> Every day</label>
+      <label class="survey-choice"><input type="radio" name="play-frequency" value="Several times a week"> Several times a week</label>
+      <label class="survey-choice"><input type="radio" name="play-frequency" value="Once a week"> Once a week</label>
+      <label class="survey-choice"><input type="radio" name="play-frequency" value="A few times a month"> A few times a month</label>
+      <label class="survey-choice"><input type="radio" name="play-frequency" value="Rarely"> Rarely</label>
+      <label class="survey-choice"><input type="radio" name="play-frequency" value="I haven't played yet"> I haven't played yet</label>
+    </fieldset>
+    <div class="survey-question"><label for="survey-first-interest">What first made you curious enough to take a closer look?</label>
+      <textarea id="survey-first-interest" name="first-interest" rows="3"></textarea>
     </div>
-  </fieldset>
-  <fieldset class="survey-question">
-    <legend>How long have you been playing StepHaven?</legend>
-    <label class="survey-choice"><input type="radio" name="play-duration" value="Less than a week"> Less than a week</label>
-    <label class="survey-choice"><input type="radio" name="play-duration" value="1 week to less than 1 month"> 1 week to less than 1 month</label>
-    <label class="survey-choice"><input type="radio" name="play-duration" value="1 to less than 3 months"> 1 to less than 3 months</label>
-    <label class="survey-choice"><input type="radio" name="play-duration" value="3 to less than 6 months"> 3 to less than 6 months</label>
-    <label class="survey-choice"><input type="radio" name="play-duration" value="6 months or more"> 6 months or more</label>
-    <label class="survey-choice"><input type="radio" name="play-duration" value="I haven't played yet"> I haven't played yet</label>
-  </fieldset>
-  <fieldset class="survey-question">
-    <legend>How often do you play StepHaven?</legend>
-    <label class="survey-choice"><input type="radio" name="play-frequency" value="Every day"> Every day</label>
-    <label class="survey-choice"><input type="radio" name="play-frequency" value="Several times a week"> Several times a week</label>
-    <label class="survey-choice"><input type="radio" name="play-frequency" value="Once a week"> Once a week</label>
-    <label class="survey-choice"><input type="radio" name="play-frequency" value="A few times a month"> A few times a month</label>
-    <label class="survey-choice"><input type="radio" name="play-frequency" value="Rarely"> Rarely</label>
-    <label class="survey-choice"><input type="radio" name="play-frequency" value="I haven't played yet"> I haven't played yet</label>
-  </fieldset>
+  </details>
+  <details class="survey-section" data-players>
+    <summary>Your first session</summary>
+    <fieldset class="survey-question">
+      <legend>What did you try to do first?</legend>
+      <label class="survey-choice"><input type="radio" name="first-action" value="Check my steps"> Check my steps</label>
+      <label class="survey-choice"><input type="radio" name="first-action" value="Place something in my town"> Place something in my town</label>
+      <label class="survey-choice"><input type="radio" name="first-action" value="Explore the map"> Explore the map</label>
+      <label class="survey-choice"><input type="radio" name="first-action" value="Look through the shop"> Look through the shop</label>
+      <label class="survey-choice"><input type="radio" name="first-action" value="Join someone else’s haven"> Join someone else’s haven</label>
+      <label class="survey-choice"><input type="radio" name="first-action" value="Something else"> Something else</label>
+      <label class="survey-choice"><input type="radio" name="first-action" value="I don’t remember"> I don’t remember</label>
+    </fieldset>
+    <fieldset class="survey-question">
+      <legend>Where, if anywhere, did you get stuck that first day?</legend>
+      <label class="survey-choice"><input type="radio" name="first-sticking-point" value="Connecting my steps"> Connecting my steps</label>
+      <label class="survey-choice"><input type="radio" name="first-sticking-point" value="Understanding build points"> Understanding build points</label>
+      <label class="survey-choice"><input type="radio" name="first-sticking-point" value="Finding pieces I owned"> Finding pieces I owned</label>
+      <label class="survey-choice"><input type="radio" name="first-sticking-point" value="Placing or moving a piece"> Placing or moving a piece</label>
+      <label class="survey-choice"><input type="radio" name="first-sticking-point" value="Deciding what to do next"> Deciding what to do next</label>
+      <label class="survey-choice"><input type="radio" name="first-sticking-point" value="Somewhere else"> Somewhere else</label>
+      <label class="survey-choice"><input type="radio" name="first-sticking-point" value="I got through what I wanted to do"> I got through what I wanted to do</label>
+      <label class="survey-choice"><input type="radio" name="first-sticking-point" value="I don’t remember"> I don’t remember</label>
+    </fieldset>
+    <div class="survey-question"><label for="survey-first-expectation">Think back to that moment. What did you expect to happen when you tapped?</label>
+      <textarea id="survey-first-expectation" name="first-expectation" rows="3"></textarea>
+    </div>
+  </details>
+  <details class="survey-section" data-players>
+    <summary>Walking and build points</summary>
+    <fieldset class="survey-question">
+      <legend>When do you usually check what your steps earned?</legend>
+      <label class="survey-choice"><input type="radio" name="check-steps" value="During a walk"> During a walk</label>
+      <label class="survey-choice"><input type="radio" name="check-steps" value="Just after a walk"> Just after a walk</label>
+      <label class="survey-choice"><input type="radio" name="check-steps" value="At the end of the day"> At the end of the day</label>
+      <label class="survey-choice"><input type="radio" name="check-steps" value="After a few days"> After a few days</label>
+      <label class="survey-choice"><input type="radio" name="check-steps" value="Whenever I feel like building"> Whenever I feel like building</label>
+      <label class="survey-choice"><input type="radio" name="check-steps" value="I rarely check"> I rarely check</label>
+    </fieldset>
+    <fieldset class="survey-question">
+      <legend>Has playing changed how much you walk?</legend>
+      <label class="survey-choice"><input type="radio" name="walking-change" value="I walk more"> I walk more</label>
+      <label class="survey-choice"><input type="radio" name="walking-change" value="I walk about the same amount"> I walk about the same amount</label>
+      <label class="survey-choice"><input type="radio" name="walking-change" value="I walk less"> I walk less</label>
+      <label class="survey-choice"><input type="radio" name="walking-change" value="It varies too much to say"> It varies too much to say</label>
+      <label class="survey-choice"><input type="radio" name="walking-change" value="Too early to tell"> Too early to tell</label>
+    </fieldset>
+    <fieldset class="survey-question">
+      <legend>For the last piece you saved for, how did the wait feel?</legend>
+      <label class="survey-choice"><input type="radio" name="saving-pace" value="Much shorter than I wanted"> Much shorter than I wanted</label>
+      <label class="survey-choice"><input type="radio" name="saving-pace" value="A little shorter than I wanted"> A little shorter than I wanted</label>
+      <label class="survey-choice"><input type="radio" name="saving-pace" value="About right"> About right</label>
+      <label class="survey-choice"><input type="radio" name="saving-pace" value="A little longer than I wanted"> A little longer than I wanted</label>
+      <label class="survey-choice"><input type="radio" name="saving-pace" value="Much longer than I wanted"> Much longer than I wanted</label>
+      <label class="survey-choice"><input type="radio" name="saving-pace" value="I haven’t saved for a piece yet"> I haven’t saved for a piece yet</label>
+    </fieldset>
+    <div class="survey-question"><label for="survey-last-walk">Think of a recent walk. What did you do with the points afterward, and why?</label>
+      <textarea id="survey-last-walk" name="last-walk" rows="3"></textarea>
+    </div>
+  </details>
+  <details class="survey-section" data-players>
+    <summary>Building and returning</summary>
+    <fieldset class="survey-question">
+      <legend>What did you spend time on during your last visit?</legend>
+      <p class="survey-hint">Choose any that fit.</p>
+      <label class="survey-choice"><input type="checkbox" name="last-visit" value="Shopping for pieces"> Shopping for pieces</label>
+      <label class="survey-choice"><input type="checkbox" name="last-visit" value="Arranging my town"> Arranging my town</label>
+      <label class="survey-choice"><input type="checkbox" name="last-visit" value="Watching villagers or animals"> Watching villagers or animals</label>
+      <label class="survey-choice"><input type="checkbox" name="last-visit" value="Exploring the map"> Exploring the map</label>
+      <label class="survey-choice"><input type="checkbox" name="last-visit" value="Designing in the Workshop"> Designing in the Workshop</label>
+      <label class="survey-choice"><input type="checkbox" name="last-visit" value="Building with someone else"> Building with someone else</label>
+      <label class="survey-choice"><input type="checkbox" name="last-visit" value="Checking points or rewards"> Checking points or rewards</label>
+      <label class="survey-choice"><input type="checkbox" name="last-visit" value="Something else"> Something else</label>
+    </fieldset>
+    <fieldset class="survey-question">
+      <legend>Which part of your last building session took more effort than you wanted?</legend>
+      <label class="survey-choice"><input type="radio" name="build-friction" value="Finding a particular piece"> Finding a particular piece</label>
+      <label class="survey-choice"><input type="radio" name="build-friction" value="Seeing where a piece would fit"> Seeing where a piece would fit</label>
+      <label class="survey-choice"><input type="radio" name="build-friction" value="Placing it on the intended tile"> Placing it on the intended tile</label>
+      <label class="survey-choice"><input type="radio" name="build-friction" value="Rearranging an existing area"> Rearranging an existing area</label>
+      <label class="survey-choice"><input type="radio" name="build-friction" value="Working out what I could afford"> Working out what I could afford</label>
+      <label class="survey-choice"><input type="radio" name="build-friction" value="Something else"> Something else</label>
+      <label class="survey-choice"><input type="radio" name="build-friction" value="Nothing felt difficult"> Nothing felt difficult</label>
+      <label class="survey-choice"><input type="radio" name="build-friction" value="I haven’t built anything yet"> I haven’t built anything yet</label>
+    </fieldset>
+    <div class="survey-question"><label for="survey-return-reason">What brought you back the last time you opened StepHaven?</label>
+      <textarea id="survey-return-reason" name="return-reason" rows="3"></textarea>
+    </div>
+    <div class="survey-question"><label for="survey-unfinished-project">Is there a project you put aside? What were you building, and what made you stop?</label>
+      <textarea id="survey-unfinished-project" name="unfinished-project" rows="3"></textarea>
+    </div>
+  </details>
+  <details class="survey-section">
+    <summary>StepHaven+ and the website</summary>
+    <fieldset class="survey-question">
+      <legend>Before opening this survey, how familiar were you with StepHaven+?</legend>
+      <label class="survey-choice"><input type="radio" name="plus-familiarity" value="I hadn’t heard of it"> I hadn’t heard of it</label>
+      <label class="survey-choice"><input type="radio" name="plus-familiarity" value="I knew the name"> I knew the name</label>
+      <label class="survey-choice"><input type="radio" name="plus-familiarity" value="I had looked into the features"> I had looked into the features</label>
+      <label class="survey-choice"><input type="radio" name="plus-familiarity" value="I used to have Plus"> I used to have Plus</label>
+      <label class="survey-choice"><input type="radio" name="plus-familiarity" value="I currently have Plus"> I currently have Plus</label>
+    </fieldset>
+    <fieldset class="survey-question">
+      <legend>What would you want a Plus page to explain?</legend>
+      <p class="survey-hint">Choose any that fit.</p>
+      <label class="survey-choice"><input type="checkbox" name="plus-information" value="Which features come with Plus"> Which features come with Plus</label>
+      <label class="survey-choice"><input type="checkbox" name="plus-information" value="What I can do for free"> What I can do for free</label>
+      <label class="survey-choice"><input type="checkbox" name="plus-information" value="Monthly, yearly, and lifetime options"> Monthly, yearly, and lifetime options</label>
+      <label class="survey-choice"><input type="checkbox" name="plus-information" value="Where I can buy it"> Where I can buy it</label>
+      <label class="survey-choice"><input type="checkbox" name="plus-information" value="How to manage or restore a purchase"> How to manage or restore a purchase</label>
+      <label class="survey-choice"><input type="checkbox" name="plus-information" value="What happens when a plan ends"> What happens when a plan ends</label>
+      <label class="survey-choice"><input type="checkbox" name="plus-information" value="Something else"> Something else</label>
+    </fieldset>
+    <fieldset class="survey-question">
+      <legend>What brought you to the website today?</legend>
+      <label class="survey-choice"><input type="radio" name="site-visit" value="Learning what the game is"> Learning what the game is</label>
+      <label class="survey-choice"><input type="radio" name="site-visit" value="Finding help with the game"> Finding help with the game</label>
+      <label class="survey-choice"><input type="radio" name="site-visit" value="Checking what’s new"> Checking what’s new</label>
+      <label class="survey-choice"><input type="radio" name="site-visit" value="Reading a guide or journal story"> Reading a guide or journal story</label>
+      <label class="survey-choice"><input type="radio" name="site-visit" value="Looking into Plus"> Looking into Plus</label>
+      <label class="survey-choice"><input type="radio" name="site-visit" value="Taking this survey"> Taking this survey</label>
+      <label class="survey-choice"><input type="radio" name="site-visit" value="Something else"> Something else</label>
+    </fieldset>
+    <div class="survey-question"><label for="survey-site-missing">What, if anything, did you come looking for and leave without finding?</label>
+      <textarea id="survey-site-missing" name="site-missing" rows="3"></textarea>
+    </div>
+  </details>
+  <details class="survey-section">
+    <summary>What should we work on?</summary>
+    <fieldset class="survey-question">
+      <legend>If we could work on one area next, which would you choose?</legend>
+      <label class="survey-choice"><input type="radio" name="priority" value="Making it easier to get started"> Making it easier to get started</label>
+      <label class="survey-choice"><input type="radio" name="priority" value="Making step tracking clearer"> Making step tracking clearer</label>
+      <label class="survey-choice"><input type="radio" name="priority" value="Improving building controls"> Improving building controls</label>
+      <label class="survey-choice"><input type="radio" name="priority" value="Adding more things to build"> Adding more things to build</label>
+      <label class="survey-choice"><input type="radio" name="priority" value="Giving townspeople more to do"> Giving townspeople more to do</label>
+      <label class="survey-choice"><input type="radio" name="priority" value="Improving shared havens"> Improving shared havens</label>
+      <label class="survey-choice"><input type="radio" name="priority" value="Improving performance"> Improving performance</label>
+      <label class="survey-choice"><input type="radio" name="priority" value="Something else"> Something else</label>
+      <label class="survey-choice"><input type="radio" name="priority" value="I don’t have a preference"> I don’t have a preference</label>
+    </fieldset>
+    <div class="survey-question"><label for="survey-priority-example">What would that change let you do? A specific example helps.</label>
+      <textarea id="survey-priority-example" name="priority-example" rows="3"></textarea>
+    </div>
+    <div class="survey-question"><label for="survey-keep">What already works well for you that you’d want us to keep?</label>
+      <textarea id="survey-keep" name="keep" rows="3"></textarea>
+    </div>
+  </details>
 </dialog>
 <script>
   (() => {
@@ -686,6 +1034,10 @@
     const writeIn = survey.querySelector('.survey-write-in');
     document.getElementById('open-survey').addEventListener('click', () => survey.showModal());
     survey.addEventListener('change', event => {
+      if (event.target.name === 'play-duration') {
+        const newVisitor = event.target.value === "I haven't played yet";
+        survey.querySelectorAll('[data-players]').forEach(section => { section.hidden = newVisitor; });
+      }
       if (event.target.name === 'discovery') writeIn.hidden = event.target.value !== 'Other';
     });
   })();
